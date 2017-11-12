@@ -4,7 +4,7 @@ class TeamInfo extends Component {
 	render(){
 		return(
 			<div>
-				TeamInfo
+				{this.props.currentTeam} TeamInfo
 			</div>
 		);
 	}

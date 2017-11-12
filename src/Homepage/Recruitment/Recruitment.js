@@ -6,9 +6,8 @@ class Recruitment extends Component {
 	render(){
 		return(
 			<div>
-				Recruitment
-				<About/>
-				<LookingFor/>
+				<About currentTeam={this.props.currentTeam}/>
+				<LookingFor currentTeam={this.props.currentTeam}/>
 			</div>
 		);
 	}

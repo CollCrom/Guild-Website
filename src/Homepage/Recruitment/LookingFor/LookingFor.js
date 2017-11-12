@@ -4,7 +4,7 @@ class LookingFor extends Component {
 	render(){
 		return(
 			<div>
-				LookingFor
+				{this.props.currentTeam} team LookingFor
 			</div>
 		);
 	}

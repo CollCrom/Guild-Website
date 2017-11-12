@@ -4,7 +4,7 @@ class BossKills extends Component {
 	render(){
 		return(
 			<div>
-				Bosskills
+				{this.props.currentTeam} Bosskills
 			</div>
 		);
 	}

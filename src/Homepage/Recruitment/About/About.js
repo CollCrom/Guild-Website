@@ -4,7 +4,7 @@ class About extends Component {
 	render(){
 		return(
 			<div>
-				About
+				{this.props.currentTeam} team About
 			</div>
 		);
 	}
