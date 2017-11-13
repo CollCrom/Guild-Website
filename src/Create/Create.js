@@ -7,12 +7,18 @@ class Create extends Component {
 		super()
 		this.state = {
 			guild_id: '',
+			guild_region: ''
 		}
+	}
+	setGuildRegion = (region) =>{
+		const state = this.state;
+		state.guild_region = region;
+		this.setState(state)
 	}
 	render(){
 		return(
 			<div>
-				{this.state.guild_id ? <Guild/> : <Team guild_id={this.state.guild_id}/>}
+				{!this.state.guild_id ? <Guild setGuildRegion={this.setGuildRegion}/> : <Team guild_id={this.state.guild_id}/>}
 			</div>
 		)
 	}

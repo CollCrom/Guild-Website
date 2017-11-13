@@ -5,6 +5,7 @@ class Team extends Component {
 		super(props);
 		this.state = {
 			player_name: '',
+			player_realm: '',
 			img_link: '',
 			role: '',
 			guild_id: this.props.guild_id
@@ -23,14 +24,11 @@ class Team extends Component {
   		state.role = '';
       this.setState(state);
   }
-	render(){
-		lf_mythic: '',
-				lf_heroic: '',
-				lf_rbg: '',
-				about_mythic: '',
-				about_heroic: '',
-				about_rbg: ''
+  getPlayerImage = (player) =>{
+  	let URI;
 
+  }
+	render(){
 		return(
 			<div>
 				<form onSubmit={this.handleSubmit}>

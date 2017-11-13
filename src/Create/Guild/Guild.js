@@ -22,7 +22,9 @@ class Guild extends Component {
       const name = e.currentTarget.name;
       state.guild[name] = e.currentTarget.value;
       this.setState(state);
+      console.log(this.state)
   }
+
   handleSelectChange = (e) =>{
   	const state = this.state;
   	const name = e.currentTarget.name;
@@ -35,19 +37,25 @@ class Guild extends Component {
 			this.setState(state);
   	}
   }
+
   handleCheckboxChange = (e) =>{
   	const state = this.state;
   	const name = e.currentTarget.id
   	state[name] = e.currentTarget.checked
   	this.setState(state)
   }
+
   handleSubmit = (e) =>{
       e.preventDefault();
       const state = this.state;
-      for(let el in state.guild){
-      	state.guild[el] = '';
-      }
-      this.setState(state);
+      this.props.setGuildRegion(state.guild.region);
+      this.clearState(state);
+  }
+
+  clearState = (state) =>{
+  	for(let el in state.guild)
+  		state.guild[el] = '';
+  	this.setState(state)
   }
 
   realmListApiCall = (region) => {
