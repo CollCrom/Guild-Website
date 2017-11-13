@@ -54,6 +54,8 @@ class Guild extends Component {
   	}else if (region === 'EU') {
   		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
   	}
+  	else if (region === '')
+  		return;
   	fetch(theURI)
 		.then((response)=>(response.json()))
 		.then((data)=>{
@@ -77,7 +79,7 @@ class Guild extends Component {
 		return(<div>
 				<form onSubmit={this.handleSubmit}>
 					<input onChange={this.handleChange} type='text' name='name' placeholder='Guild Name' value={this.state.guild.name}/>
-					<input onChange={this.handleChange} type='text' name='about' placeholder='About your Guidl' value={this.state.guild.about}/>
+					<input onChange={this.handleChange} type='text' name='about' placeholder='About your Guild' value={this.state.guild.about}/>
 					<select name='region' value={this.state.region} onChange={this.handleSelectChange}>
 						<option value=''>Select your region</option>
 						<option value='EU'>EU</option>

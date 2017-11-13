@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 
-class RBG extends Component {
+class Heroic extends Component {
 	render(){
-		return
+		return(
 			<div>
 			</div>
+		)
 	}
 }
 
-export default RBG;
+export default Heroic;
