@@ -16,6 +16,8 @@ class Guild extends Component {
 				about_heroic: '',
 				about_rbg: ''
 			}
+			realms: [],
+			region: ''
 		}
 	}
 	componentDidMount = () =>{
@@ -36,6 +38,26 @@ class Guild extends Component {
       }
       this.setState(state);
   }
+
+  realmListApiCall = (region) => {
+  	if (region === 'US') {
+  		const theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
+  	}else if (region === 'EU') {
+  		const theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
+  	}
+  	fetch(theURI)
+		.then((response)=>(response.json()))
+		.then((data)=>{
+			const state = this.state;
+			state.realms = [];
+			for (let i = 0; i < data.length; i++) {
+				state.realms.push({name: data[i].name, slug: data[i].slug});
+			}
+			this.setState(state);
+		});
+  }
+
+
 	render(){
 		return
 			<div>
