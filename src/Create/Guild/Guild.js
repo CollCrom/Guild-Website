@@ -22,7 +22,6 @@ class Guild extends Component {
       const name = e.currentTarget.name;
       state.guild[name] = e.currentTarget.value;
       this.setState(state);
-      console.log(this.state)
   }
 
   handleSelectChange = (e) =>{
@@ -30,6 +29,7 @@ class Guild extends Component {
   	const name = e.currentTarget.name;
   	if(name === 'region'){
   		state[name] = e.currentTarget.value;
+  		state.guild[name] = e.currentTarget.value;
   		this.realmListApiCall(state[name]);
   	}
   	else{
@@ -104,15 +104,18 @@ class Guild extends Component {
 				<form onSubmit={this.handleSubmit}>
 					<input onChange={this.handleChange} type='text' name='name' placeholder='Guild Name' value={this.state.guild.name}/>
 					<input onChange={this.handleChange} type='text' name='about' placeholder='About your Guild' value={this.state.guild.about}/>
+
 					<select name='region' value={this.state.region} onChange={this.handleSelectChange}>
 						<option value=''>Select your region</option>
 						<option value='EU'>EU</option>
 						<option value='US'>US</option>
 					</select>
+
 					<select name='realm' value={this.state.realm} onChange={this.handleSelectChange}>
 						<option value=''>Select your realm</option>
 						{realmList}
 					</select>
+
 					<input type="checkbox" id="mythicCheck" onChange={this.handleCheckboxChange}/>
 					<label htmlFor="Mythic">Mythic</label>
 					{this.state.mythicCheck ?
@@ -121,6 +124,7 @@ class Guild extends Component {
 								<input onChange={this.handleChange} type='text' name='about_mythic' placeholder='About your Mythic team' value={this.state.guild.about_mythic}/>
 							</div> : null
 					}
+
 					<input type="checkbox" id="heroicCheck" onChange={this.handleCheckboxChange}/>
 					<label htmlFor="Heroic">Heroic</label>
 					{this.state.heroicCheck ?
@@ -129,6 +133,7 @@ class Guild extends Component {
 							<input onChange={this.handleChange} type='text' name='about_heroic' placeholder='About your Heroic team' value={this.state.guild.about_heroic}/>
 						</div> : null
 					}	
+					
 					<input type="checkbox" id="rbgCheck" onChange={this.handleCheckboxChange}/>
 					<label htmlFor="RBG">RBG</label>
 					{this.state.rbgCheck ?
