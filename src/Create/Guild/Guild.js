@@ -87,6 +87,18 @@ class Guild extends Component {
 						<option value=''>Select your realm</option>
 						{realmList}
 					</select>
+					<p>
+					<input type="checkbox" id="Mythic" />
+					<label for="Mythic">Mythic</label>
+					</p>
+					<p>
+					<input type="checkbox" id="Heroic" />
+					<label for="Heroic">Heroic</label>
+					</p>
+					<p>
+					<input type="checkbox" id="RBG" />
+					<label for="RBG">RBG</label>
+					</p>
 					<input onChange={this.handleChange} type='text' name='lf_mythic' placeholder='Looking for players for Mythic' value={this.state.guild.lf_mythic}/>
 					<input onChange={this.handleChange} type='text' name='about_mythic' placeholder='About your Mythic team' value={this.state.guild.about_mythic}/>
 					<input onChange={this.handleChange} type='text' name='lf_heroic' placeholder='Looking for players for Heroic' value={this.state.guild.lf_heroic}/>
