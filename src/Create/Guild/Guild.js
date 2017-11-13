@@ -8,13 +8,7 @@ class Guild extends Component {
 				name: '',
 				about: '',
 				realm: '',
-				region: '',
-				lf_mythic: '',
-				lf_heroic: '',
-				lf_rbg: '',
-				about_mythic: '',
-				about_heroic: '',
-				about_rbg: ''
+				region: ''
 			},
 			realms: [],
 			region: ''
@@ -67,6 +61,19 @@ class Guild extends Component {
 			}
 			this.setState(state);
 		});
+  }
+
+  postGuild = (guild) => {
+  	fetch('http://localhost:9292/todo/', {
+			method: 'POST',
+			body: JSON.stringify({
+				name: this.state.name,
+				about: this.state.about,
+				realm: this.state.realm,
+				region: this.state.region
+			})
+		})
+		.then((response)=>(console.log(response)))
   }
 
 
