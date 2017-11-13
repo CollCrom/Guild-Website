@@ -31,6 +31,7 @@ class Guild extends Component {
   		state[name] = e.currentTarget.value;
   		state.guild[name] = e.currentTarget.value;
   		this.realmListApiCall(state[name]);
+  		state.guild[name] = e.currentTarget.value;
   	}
   	else{
   		state.guild[name] = e.currentTarget.value;
@@ -47,6 +48,8 @@ class Guild extends Component {
 
   handleSubmit = (e) =>{
       e.preventDefault();
+      console.log(this.state)
+      this.postGuild(this.state.guild);
       const state = this.state;
       this.props.setGuildRegion(state.guild.region);
       this.clearState(state);
@@ -80,15 +83,17 @@ class Guild extends Component {
   }
 
   postGuild = (guild) => {
-  	fetch('http://localhost:9292/todo/', {
+  	console.log(this.state.guild.name);
+  	fetch('http://localhost:9292/create', {
 			method: 'POST',
 			body: JSON.stringify({
-				name: this.state.name,
-				about: this.state.about,
-				realm: this.state.realm,
-				region: this.state.region
+				name: this.state.guild.name,
+				about: this.state.guild.about,
+				realm: this.state.guild.realm,
+				region: this.state.guild.region
 			})
 		})
+  		.then((response)=>(response.json()))
 		.then((response)=>(console.log(response)))
   }
 

@@ -32,6 +32,7 @@ class Team extends Component {
   		state.role = '';
       this.setState(state);
   }
+
   getPlayerImage = (player) =>{
   	let URI;
   	if(this.state.guild_region === 'us'){
@@ -46,6 +47,7 @@ class Team extends Component {
 			console.log(this.state.img_link)
 		});
   }
+
 	render(){
 		return(
 			<div>
