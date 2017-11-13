@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
-import Guild from '../Guild/Guild.js'
+import Guild from './Guild/Guild.js'
 
 class Create extends Component {
 	render(){
-		return
+		return(
 			<div>
 				<Guild/>
 			</div>
+		)
 	}
 }
 
