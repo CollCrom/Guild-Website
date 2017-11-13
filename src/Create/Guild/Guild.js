@@ -67,7 +67,9 @@ class Guild extends Component {
 			})
 		})
   		.then((response)=>(response.json()))
-		.then((response)=>(console.log(response)))
+		.then((response)=>(()=>{
+			this.props.guild(response);
+		}))
   }
 
 
@@ -99,6 +101,176 @@ class Guild extends Component {
 					{this.state.mythicCheck ?
 							<div>
 								<input onChange={this.handleChange} type='text' name='lf_mythic' placeholder='Looking for players for Mythic' value={this.state.guild.lf_mythic}/>
+								<div>
+									<div>
+										<div>
+											<input type="checkbox" id="protectionWarrior" />
+			      							<label htmlFor="protectionWarrior">Protection Warrior</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="armsWarrior" />
+			      							<label htmlFor="armsWarrior">Arms Warrior</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="furyWarrior" />
+			      							<label htmlFor="furyWarrior">Fury Warrior</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="protectionPaladin" />
+			      							<label htmlFor="protectionPaladin">Protection Paladin</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="holyPaladin" />
+			      							<label htmlFor="holyPaladin">Holy Paladin</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="retributionPaladin" />
+			      							<label htmlFor="retributionPaladin">Retribution Paladin</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="marksmanHunter" />
+			      							<label htmlFor="marksmanHunter">Marksman Hunter</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="survivalHunter" />
+			      							<label htmlFor="survivalHunter">Survival Hunter</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="bmHunter" />
+			      							<label htmlFor="bmHunter">Beast Mastery Hunter</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="assassinationRogue" />
+			      							<label htmlFor="assassinationRogue">Assassination Rogue</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="outlawRogue" />
+			      							<label htmlFor="outlawRogue">Outlaw Rogue</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="subtletyRogue" />
+			      							<label htmlFor="subtletyRogue">Subtlety Rogue</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="disciplinePriest" />
+			      							<label htmlFor="disciplinePriest">Discipline Priest</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="holyPriest" />
+			      							<label htmlFor="holyPriest">Holy Priest</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="shadowPriest" />
+			      							<label htmlFor="shadowPriest">Shadow Priest</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="frostDeathKnight" />
+			      							<label htmlFor="frostDeathKnight">Frost Death Knight</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="bloodDeathKnight" />
+			      							<label htmlFor="bloodDeathKnight">Blood Death Knight</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="unholyDeathKnight" />
+			      							<label htmlFor="unholyDeathKnight">Unholy Death Knight</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="slementalShaman" />
+			      							<label htmlFor="elementalShaman">Elemental Shaman</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="enhancementShaman" />
+			      							<label htmlFor="enhancementShaman">enhancement Shaman</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="restorationShaman" />
+			      							<label htmlFor="restorationShaman">Restoration Shaman</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="arcaneMage" />
+			      							<label htmlFor="arcaneMage">Arcane Mage</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="fireMage" />
+			      							<label htmlFor="fireMage">Fire Mage</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="frostMage" />
+			      							<label htmlFor="frostMage">Frost Mage</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="afflictionWarlock" />
+			      							<label htmlFor="afflictionWarlock">Affliction Warlock</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="demonologyWarlock" />
+			      							<label htmlFor="demonologyWarlock">Demonology Warlock</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="destructionWarlock" />
+			      							<label htmlFor="destructionWarlock">Destruction Warlock</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="brewmasterMonk" />
+			      							<label htmlFor="brewmasterMonk">Brewmaster Monk</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="mistweaverMonk" />
+			      							<label htmlFor="mistweaverMonk">Mistweaver Monk</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="windwalkerMonk" />
+			      							<label htmlFor="windwalkerMonk">Windwalker Monk</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="guardianDruid" />
+			      							<label htmlFor="guardianDruid">Guardian Druid</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="feralDruid" />
+			      							<label htmlFor="feralDruid">Feral Druid</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="balanceDruid" />
+			      							<label htmlFor="balanceDruid">Balance Druid</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="restorationDruid" />
+			      							<label htmlFor="restorationDruid">Restoration Druid</label>
+			      						</div>
+			      					</div>
+			      					<div>
+										<div>
+											<input type="checkbox" id="vengeanceDemonHunter" />
+			      							<label htmlFor="vengeanceDemonHunter">Vengeance Demon Hunter</label>
+			      						</div>
+			      						<div>
+											<input type="checkbox" id="havocDemonHunter" />
+			      							<label htmlFor="havocDemonHunter">Havoc Demon Hunter</label>
+			      						</div>
+			      					</div>
+								</div>
 								<input onChange={this.handleChange} type='text' name='about_mythic' placeholder='About your Mythic team' value={this.state.guild.about_mythic}/>
 							</div> : null
 					}
