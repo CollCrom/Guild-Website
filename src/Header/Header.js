@@ -9,14 +9,15 @@ class Header extends Component {
 		return (
 			<Router>
 				<div>
+
 					<ul>
 						<li><Link to="/">Tribe of the Ascended</Link></li>
 						<li><Link to="/roster">Roster</Link></li>
 						<li><Link to="/contact">Contact</Link></li>
 					</ul>
 
-					<Route exact path="/" component={Homepage}/>
-	      	<Route path="/roster" component={Roster}/>
+					<Route exact path="/" component={() => (<Homepage currentTeam={this.props.currentTeam} changeTeamInfo={this.props.changeTeamInfo}/>)}/>
+	      	<Route path="/roster" component={() => (<Roster currentTeam={this.props.currentTeam} changeTeamInfo={this.props.changeTeamInfo} />)}/>
 	      	<Route path="/contact" component={Contact}/>
 	      </div>
 			</Router>
