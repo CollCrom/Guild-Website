@@ -4,12 +4,12 @@ class Team extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			player_name: '',
-			player_realm: '',
-			img_link: '',
+			name: '',
+			realm: '',
+			img: '',
 			role: '',
-			guild_region: this.props.guild_region.toLowerCase(),
-			guild_id: this.props.guild_id
+			region: this.props.region.toLowerCase(),
+			guildId: this.props.guildId
 		}
 	}
 	handleChange = (e) => {
@@ -20,7 +20,8 @@ class Team extends Component {
   }
 	handleSelectChange = (e) =>{
 		const state = this.state;
-		state.role = e.currentTarget.value;
+		const name = e.currentTarget.name;
+		state[name] = e.currentTarget.value;
 		this.setState(state)
 	}
 	handleSubmit = (e) =>{
@@ -35,24 +36,34 @@ class Team extends Component {
 
   getPlayerImage = (player) =>{
   	let URI;
-  	if(this.state.guild_region === 'us'){
-  		URI = `https://us.api.battle.net/wow/character/Burning%20Legion/Hewhosmites?locale=en_US&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2`;
-  	}
+  	if(this.state.region === 'us')
+  		console.log('blah')
+  	else if(this.state.region === 'eu')
+  		console.log('poop')
+  	else
+  		return;
+  	console.log(URI)
   	fetch(URI)
-		.then((response)=>(response.json()))
+  	.then((response)=>(response.json()))
 		.then((data)=>{
 			const state = this.state;
-			state.img_link = data.thumbnail
+			state.img = data.thumbnail
 			this.setState(state)
-			console.log(this.state.img_link)
 		});
   }
 
 	render(){
+		this.props.crossRealmListApiCall(this.props.region)
+		const realms = this.props.crossRealms.map((realm, i)=>{
+			return(
+				<option key={i} value={realm}>{realm}</option>
+			)
+		})
 		return(
 			<div>
 				<form onSubmit={this.handleSubmit}>
 					<input type='text' name='player_name' placeholder='Player Name' value={this.state.player_name} onChange={this.handleChange}/>
+
 					<select name='role' value={this.state.role} onChange={this.handleSelectChange}>
 						<option value=''>Role</option>
 						<option value='Tank'>Tank</option>
@@ -60,6 +71,12 @@ class Team extends Component {
 						<option value='Melee'>Melee</option>
 						<option value='Ranged'>Ranged</option>
 					</select>
+
+					<select name='realm' value={this.state.realm} onChange={this.handleSelectChange}>
+						<option value=''>Select your realm</option>
+						{realms}
+					</select>
+
 					<input type="submit" value="Submit" />
 				</form>
 			</div>

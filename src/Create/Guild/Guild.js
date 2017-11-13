@@ -10,8 +10,6 @@ class Guild extends Component {
 				realm: '',
 				region: ''
 			},
-			realms: [],
-			region: '',
 			mythicCheck: false,
 			heroicCheck: false,
 			rbgCheck: false
@@ -28,10 +26,8 @@ class Guild extends Component {
   	const state = this.state;
   	const name = e.currentTarget.name;
   	if(name === 'region'){
-  		state[name] = e.currentTarget.value;
   		state.guild[name] = e.currentTarget.value;
-  		this.realmListApiCall(state[name]);
-  		state.guild[name] = e.currentTarget.value;
+  		this.props.realmListApiCall(state.guild[name]);
   	}
   	else{
   		state.guild[name] = e.currentTarget.value;
@@ -48,10 +44,9 @@ class Guild extends Component {
 
   handleSubmit = (e) =>{
       e.preventDefault();
-      console.log(this.state)
       this.postGuild(this.state.guild);
       const state = this.state;
-      this.props.setGuildRegion(state.guild.region);
+      this.props.setGuildInfo(state.guild.region, state.guild.realm);
       this.clearState(state);
   }
 
@@ -61,29 +56,7 @@ class Guild extends Component {
   	this.setState(state)
   }
 
-  realmListApiCall = (region) => {
-  	let theURI;
-  	if (region === 'US') {
-  		theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
-  	}else if (region === 'EU') {
-  		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
-  	}
-  	else if (region === '')
-  		return;
-  	fetch(theURI)
-		.then((response)=>(response.json()))
-		.then((data)=>{
-			const state = this.state;
-			state.realms = [];
-			for (let i = 0; i < data.realms.length; i++) {
-				state.realms.push({name: data.realms[i].name, slug: data.realms[i].slug});
-			}
-			this.setState(state);
-		});
-  }
-
   postGuild = (guild) => {
-  	console.log(this.state.guild.name);
   	fetch('http://localhost:9292/create', {
 			method: 'POST',
 			body: JSON.stringify({
@@ -99,7 +72,7 @@ class Guild extends Component {
 
 
 	render(){
-		const realmList = this.state.realms.map((realm, i)=>{
+		const realmList = this.props.realms.map((realm, i)=>{
 			return(
 				<option key={i} value={realm.slug}>{realm.name}</option>
 			)
@@ -110,13 +83,13 @@ class Guild extends Component {
 					<input onChange={this.handleChange} type='text' name='name' placeholder='Guild Name' value={this.state.guild.name}/>
 					<input onChange={this.handleChange} type='text' name='about' placeholder='About your Guild' value={this.state.guild.about}/>
 
-					<select name='region' value={this.state.region} onChange={this.handleSelectChange}>
+					<select name='region' value={this.state.guild.region} onChange={this.handleSelectChange}>
 						<option value=''>Select your region</option>
 						<option value='EU'>EU</option>
 						<option value='US'>US</option>
 					</select>
 
-					<select name='realm' value={this.state.realm} onChange={this.handleSelectChange}>
+					<select name='realm' value={this.state.guild.realm} onChange={this.handleSelectChange}>
 						<option value=''>Select your realm</option>
 						{realmList}
 					</select>
