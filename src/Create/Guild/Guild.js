@@ -14,10 +14,13 @@ class Guild extends Component {
 				lf_rbg: '',
 				about_mythic: '',
 				about_heroic: '',
-				about_rbg: ''
+				about_rbg: '',
 			},
 			realms: [],
-			region: ''
+			region: '',
+			mythicCheck: false,
+			heroicCheck: false,
+			rbgCheck: false
 		}
 	}
 	handleChange = (e) => {
@@ -37,6 +40,12 @@ class Guild extends Component {
   		state.guild[name] = e.currentTarget.value;
 			this.setState(state);
   	}
+  }
+  handleCheckboxChange = (e) =>{
+  	const state = this.state;
+  	const name = e.currentTarget.id
+  	state[name] = e.currentTarget.checked
+  	this.setState(state)
   }
   handleSubmit = (e) =>{
       e.preventDefault();
@@ -59,7 +68,6 @@ class Guild extends Component {
   	fetch(theURI)
 		.then((response)=>(response.json()))
 		.then((data)=>{
-			console.log(data.realms)
 			const state = this.state;
 			state.realms = [];
 			for (let i = 0; i < data.realms.length; i++) {
@@ -76,7 +84,8 @@ class Guild extends Component {
 				<option key={i} value={realm.slug}>{realm.name}</option>
 			)
 		})
-		return(<div>
+		return(
+			<div>
 				<form onSubmit={this.handleSubmit}>
 					<input onChange={this.handleChange} type='text' name='name' placeholder='Guild Name' value={this.state.guild.name}/>
 					<input onChange={this.handleChange} type='text' name='about' placeholder='About your Guild' value={this.state.guild.about}/>
@@ -89,27 +98,34 @@ class Guild extends Component {
 						<option value=''>Select your realm</option>
 						{realmList}
 					</select>
-					<p>
-					<input type="checkbox" id="Mythic" />
-					<label for="Mythic">Mythic</label>
-					</p>
-					<p>
-					<input type="checkbox" id="Heroic" />
-					<label for="Heroic">Heroic</label>
-					</p>
-					<p>
-					<input type="checkbox" id="RBG" />
-					<label for="RBG">RBG</label>
-					</p>
-					<input onChange={this.handleChange} type='text' name='lf_mythic' placeholder='Looking for players for Mythic' value={this.state.guild.lf_mythic}/>
-					<input onChange={this.handleChange} type='text' name='about_mythic' placeholder='About your Mythic team' value={this.state.guild.about_mythic}/>
-					<input onChange={this.handleChange} type='text' name='lf_heroic' placeholder='Looking for players for Heroic' value={this.state.guild.lf_heroic}/>
-					<input onChange={this.handleChange} type='text' name='about_heroic' placeholder='About your Heroic team' value={this.state.guild.about_heroic}/>
-					<input onChange={this.handleChange} type='text' name='lf_rbg' placeholder='Looking for RBGs' value={this.state.guild.lf_rbg}/>
-					<input onChange={this.handleChange} type='text' name='about_rbg' placeholder='About your RBG team' value={this.state.guild.about_rbg}/>
+					<input type="checkbox" id="mythicCheck" onChange={this.handleCheckboxChange}/>
+					<label htmlFor="Mythic">Mythic</label>
+					{this.state.mythicCheck ?
+							<div>
+								<input onChange={this.handleChange} type='text' name='lf_mythic' placeholder='Looking for players for Mythic' value={this.state.guild.lf_mythic}/>
+								<input onChange={this.handleChange} type='text' name='about_mythic' placeholder='About your Mythic team' value={this.state.guild.about_mythic}/>
+							</div> : null
+					}
+					<input type="checkbox" id="heroicCheck" onChange={this.handleCheckboxChange}/>
+					<label htmlFor="Heroic">Heroic</label>
+					{this.state.heroicCheck ?
+						<div>
+							<input onChange={this.handleChange} type='text' name='lf_heroic' placeholder='Looking for players for Heroic' value={this.state.guild.lf_heroic}/>
+							<input onChange={this.handleChange} type='text' name='about_heroic' placeholder='About your Heroic team' value={this.state.guild.about_heroic}/>
+						</div> : null
+					}	
+					<input type="checkbox" id="rbgCheck" onChange={this.handleCheckboxChange}/>
+					<label htmlFor="RBG">RBG</label>
+					{this.state.rbgCheck ?
+						<div>
+							<input onChange={this.handleChange} type='text' name='lf_rbg' placeholder='Looking for RBGs' value={this.state.guild.lf_rbg}/>
+							<input onChange={this.handleChange} type='text' name='about_rbg' placeholder='About your RBG team' value={this.state.guild.about_rbg}/>
+						</div> : null
+					}
 					<input type="submit" value="Submit" />
 				</form>
-			</div>)
+			</div>
+		)
 	}
 }
 
