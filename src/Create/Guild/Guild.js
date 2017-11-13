@@ -20,9 +20,6 @@ class Guild extends Component {
 			region: ''
 		}
 	}
-	componentDidMount = () =>{
-
-	}
 	handleChange = (e) => {
       const state = this.state;
       const name = e.currentTarget.name;
@@ -32,8 +29,14 @@ class Guild extends Component {
   handleSelectChange = (e) =>{
   	const state = this.state;
   	const name = e.currentTarget.name;
-  	state[name] = e.currentTarget.value;
-  	this.setState(state);
+  	if(name === 'region'){
+  		state[name] = e.currentTarget.value;
+  		this.realmListApiCall(state[name]);
+  	}
+  	else{
+  		state.guild[name] = e.currentTarget.value;
+			this.setState(state);
+  	}
   }
   handleSubmit = (e) =>{
       e.preventDefault();
@@ -43,14 +46,46 @@ class Guild extends Component {
       }
       this.setState(state);
   }
+
+  realmListApiCall = (region) => {
+  	let theURI;
+  	if (region === 'US') {
+  		theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
+  	}else if (region === 'EU') {
+  		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
+  	}
+  	fetch(theURI)
+		.then((response)=>(response.json()))
+		.then((data)=>{
+			console.log(data.realms)
+			const state = this.state;
+			state.realms = [];
+			for (let i = 0; i < data.realms.length; i++) {
+				state.realms.push({name: data.realms[i].name, slug: data.realms[i].slug});
+			}
+			this.setState(state);
+		});
+  }
+
+
 	render(){
+		const realmList = this.state.realms.map((realm, i)=>{
+			return(
+				<option key={i} value={realm.slug}>{realm.name}</option>
+			)
+		})
 		return(<div>
 				<form onSubmit={this.handleSubmit}>
 					<input onChange={this.handleChange} type='text' name='name' placeholder='Guild Name' value={this.state.guild.name}/>
 					<input onChange={this.handleChange} type='text' name='about' placeholder='About your Guidl' value={this.state.guild.about}/>
 					<select name='region' value={this.state.region} onChange={this.handleSelectChange}>
+						<option value=''>Select your region</option>
 						<option value='EU'>EU</option>
 						<option value='US'>US</option>
+					</select>
+					<select name='realm' value={this.state.realm} onChange={this.handleSelectChange}>
+						<option value=''>Select your realm</option>
+						{realmList}
 					</select>
 					<input onChange={this.handleChange} type='text' name='lf_mythic' placeholder='Looking for players for Mythic' value={this.state.guild.lf_mythic}/>
 					<input onChange={this.handleChange} type='text' name='about_mythic' placeholder='About your Mythic team' value={this.state.guild.about_mythic}/>
