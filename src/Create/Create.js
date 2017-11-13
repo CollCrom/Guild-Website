@@ -12,7 +12,7 @@ class Create extends Component {
 	render(){
 		return(
 			<div>
-				{this.state.guild_id ? <Guild/> : <Team guild_id={this.state.guild_id}/>}
+				{!this.state.guild_id ? <Guild/> : <Team guild_id={this.state.guild_id}/>}
 			</div>
 		)
 	}

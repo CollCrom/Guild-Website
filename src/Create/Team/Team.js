@@ -24,13 +24,6 @@ class Team extends Component {
       this.setState(state);
   }
 	render(){
-		lf_mythic: '',
-				lf_heroic: '',
-				lf_rbg: '',
-				about_mythic: '',
-				about_heroic: '',
-				about_rbg: ''
-
 		return(
 			<div>
 				<form onSubmit={this.handleSubmit}>
