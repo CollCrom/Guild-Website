@@ -1,21 +1,23 @@
 import React, {Component} from 'react'
 
-class Team extends Component {
+class Player extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			name: '',
-			realm: '',
-			img: '',
-			role: '',
+			name: [''],
+			realm: [''],
+			img: [''],
+			role: [''],
 			region: '',
-			guildId: ''
+			guildId: '',
+			playerArr: [true]
 		}
 	}
 	handleChange = (e) => {
       const state = this.state;
       const name = e.currentTarget.name;
-      state[name] = e.currentTarget.value;
+      const index = e.currentTarget.id;
+      state[name][index] = e.currentTarget.value;
       this.setState(state);
   }
 	handleSelectChange = (e) =>{
@@ -29,20 +31,35 @@ class Team extends Component {
       const state = this.state;
       state.region = this.props.region;
       state.guildId = this.props.guildId;
-      this.setPlayerImage()
+      state.playerArr.forEach((player, i)=>{
+      	this.setPlayerImage(i)
+      })
+      console.log(this.state.img, 'img state')
   }
 
-  setPlayerImage = () =>{
-  	const URI = `https://raider.io/api/v1/characters/profile?region=${this.state.region}&realm=${this.state.realm}&name=${this.state.name}`;
+  setPlayerImage = (index) =>{
+  	const URI = `https://raider.io/api/v1/characters/profile?region=${this.state.region}&realm=${this.state.realm[index]}&name=${this.state.name[index]}`;
+  	console.log(URI, 'URI')
   	fetch(URI)
 		.then((response)=>(response.json()))
 		.then((data)=>{
 			const state = this.state;
 			if(data.statusCode > 400)
-				return;
-			state.img = data.thumbnail_url;
+				state.img[index] = '';
+			else
+				state.img[index] = data.thumbnail_url;
 			this.setState(state)
 		})
+  }
+
+  addNewPlayer = () =>{
+  	const state = this.state;
+  	state.playerArr.push(true);
+  	state.name.push('');
+  	state.realm.push('');
+  	state.img.push('');
+  	state.role.push('');
+   	this.setState(state)
   }
 
 	render(){
@@ -51,12 +68,14 @@ class Team extends Component {
 				<option key={i} value={realm}>{realm}</option>
 			)
 		})
-		return(
-			<div>
-				<form onSubmit={this.handleSubmit}>
-					<input type='text' name='name' placeholder='Player Name' value={this.state.player_name} onChange={this.handleChange}/>
 
-					<select name='role' value={this.state.role} onChange={this.handleSelectChange}>
+
+		const players = this.state.playerArr.map((player, i)=>{
+			return(
+				<div key={i}>
+		  		<input id={i} type='text' name='name' placeholder='Player Name' value={this.state.name[i]} onChange={this.handleChange}/>
+
+					<select id={i} name='role' value={this.state.role[i]} onChange={this.handleChange}>
 						<option value=''>Role</option>
 						<option value='Tank'>Tank</option>
 						<option value='Healer'>Healer</option>
@@ -64,11 +83,19 @@ class Team extends Component {
 						<option value='Ranged'>Ranged</option>
 					</select>
 
-					<select name='realm' value={this.state.realm} onChange={this.handleSelectChange}>
-						<option value=''>Select your realm</option>
+					<select id={i} name='realm' value={this.state.realm[i]} onChange={this.handleChange}>
+						<option value=''>Select the realm</option>
 						{realms}
 					</select>
+				</div>
+			)
+		})
 
+		return(
+			<div>
+				<form onSubmit={this.handleSubmit}>
+					{players}
+					<button onClick={this.addNewPlayer}>Add Player</button>
 					<input type="submit" value="Submit" />
 				</form>
 			</div>
@@ -76,4 +103,4 @@ class Team extends Component {
 	}
 }
 
-export default Team;
+export default Player;

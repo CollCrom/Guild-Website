@@ -48,6 +48,7 @@ class Guild extends Component {
       this.postGuild(this.state.guild);
       const state = this.state;
       this.props.setGuildInfo(state.guild.region, state.guild.realm);
+      this.props.changeScreen('player')
       this.clearState(state);
   }
 
