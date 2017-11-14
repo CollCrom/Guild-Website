@@ -83,49 +83,20 @@ class Guild extends Component {
 		})
 		return(
 			<div>
-				<form onSubmit={this.handleSubmit}>
-					<input onChange={this.handleChange} type='text' name='name' placeholder='Guild Name' value={this.state.guild.name}/>
-					<input onChange={this.handleChange} type='text' name='about' placeholder='About your Guild' value={this.state.guild.about}/>
+				<input onChange={this.handleChange} type='text' name='name' placeholder='Guild Name' value={this.state.guild.name}/>
+				<input onChange={this.handleChange} type='text' name='about' placeholder='About your Guild' value={this.state.guild.about}/>
 
-					<select name='region' value={this.state.guild.region} onChange={this.handleSelectChange}>
-						<option value=''>Select your region</option>
-						<option value='EU'>EU</option>
-						<option value='US'>US</option>
-					</select>
+				<select name='region' value={this.state.guild.region} onChange={this.handleSelectChange}>
+					<option value=''>Select your region</option>
+					<option value='EU'>EU</option>
+					<option value='US'>US</option>
+				</select>
 
-					<select name='realm' value={this.state.guild.realm} onChange={this.handleSelectChange}>
-						<option value=''>Select your realm</option>
-						{realmList}
-					</select>
-
-					<input type="checkbox" id="mythicCheck" onChange={this.handleCheckboxChange}/>
-					<label htmlFor="Mythic">Mythic</label>
-					{this.state.mythicCheck ?
-							<div>
-								<ClassList/>
-								<input onChange={this.handleChange} type='text' name='about_mythic' placeholder='About your Mythic team' value={this.state.guild.about_mythic}/>
-							</div> : null
-					}
-
-					<input type="checkbox" id="heroicCheck" onChange={this.handleCheckboxChange}/>
-					<label htmlFor="Heroic">Heroic</label>
-					{this.state.heroicCheck ?
-						<div>
-							<input onChange={this.handleChange} type='text' name='lf_heroic' placeholder='Looking for players for Heroic' value={this.state.guild.lf_heroic}/>
-							<input onChange={this.handleChange} type='text' name='about_heroic' placeholder='About your Heroic team' value={this.state.guild.about_heroic}/>
-						</div> : null
-					}	
-					
-					<input type="checkbox" id="rbgCheck" onChange={this.handleCheckboxChange}/>
-					<label htmlFor="RBG">RBG</label>
-					{this.state.rbgCheck ?
-						<div>
-							<input onChange={this.handleChange} type='text' name='lf_rbg' placeholder='Looking for RBGs' value={this.state.guild.lf_rbg}/>
-							<input onChange={this.handleChange} type='text' name='about_rbg' placeholder='About your RBG team' value={this.state.guild.about_rbg}/>
-						</div> : null
-					}
-					<input type="submit" value="Submit" />
-				</form>
+				<select name='realm' value={this.state.guild.realm} onChange={this.handleSelectChange}>
+					<option value=''>Select your realm</option>
+					{realmList}
+				</select>
+				<button onClick={this.handleSubmit}>Next</button>					
 			</div>
 		)
 	}
