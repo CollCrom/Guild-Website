@@ -25,9 +25,9 @@ class Create extends Component {
 	realmListApiCall = (region) => {
   	let theURI;
   	if (region === 'US') {
-  		theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
+  		theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=epxh647rz5vcvrqkxxc95kta7zmy5uvt';
   	}else if (region === 'EU') {
-  		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
+  		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=epxh647rz5vcvrqkxxc95kta7zmy5uvt';
   	}
   	else if (region === '')
   		return;
@@ -47,9 +47,9 @@ class Create extends Component {
   crossRealmListApiCall = (region) =>{
   	let theURI;
   	if (region === 'US') {
-  		theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
+  		theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=epxh647rz5vcvrqkxxc95kta7zmy5uvt';
   	}else if (region === 'EU') {
-  		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
+  		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=epxh647rz5vcvrqkxxc95kta7zmy5uvt';
   	}
   	else if (region === '')
   		return;
@@ -70,6 +70,7 @@ class Create extends Component {
   }
 
 	render(){
+		this.crossRealmListApiCall(this.state.region)
 		return(
 			<div>
 				<Guild setGuildInfo={this.setGuildInfo} realmListApiCall={this.realmListApiCall} realms={this.state.realms}/>

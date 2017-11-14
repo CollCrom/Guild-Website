@@ -8,8 +8,8 @@ class Team extends Component {
 			realm: '',
 			img: '',
 			role: '',
-			region: this.props.region.toLowerCase(),
-			guildId: this.props.guildId
+			region: '',
+			guildId: ''
 		}
 	}
 	handleChange = (e) => {
@@ -27,33 +27,31 @@ class Team extends Component {
 	handleSubmit = (e) =>{
       e.preventDefault();
       const state = this.state;
-      this.getPlayerImage(state.player_name)
-  		state.player_name = '';
-  		state.img_link = '';
-  		state.role = '';
-      this.setState(state);
+      state.region = this.props.region;
+      state.guildId = this.props.guildId;
+      this.setPlayerImage()
   }
 
-  getPlayerImage = (player) =>{
-  	let URI;
-  	if(this.state.region === 'us')
-  		console.log('blah')
-  	else if(this.state.region === 'eu')
-  		console.log('poop')
-  	else
-  		return;
-  	console.log(URI)
+  setPlayerImage = () =>{
+  	const state = this.state;
+  	console.log(this.state)
+  	const URI = `https://raider.io/api/v1/characters/profile?region=${state.region}&realm=${state.realm}&name=${state.name}`;
   	fetch(URI)
-  	.then((response)=>(response.json()))
+		.then((response)=>(response.json()))
 		.then((data)=>{
-			const state = this.state;
-			state.img = data.thumbnail
+			if(data.statusCode > 400)
+				return;
+			console.log(data)
+			state.img = data.thumbnail_url;
+		})
+		.then(()=>{
+			console.log(state.img)
+			// DOESNT SET THE STATE YET FOR SOME FUCKING REASON
 			this.setState(state)
 		});
   }
 
 	render(){
-		this.props.crossRealmListApiCall(this.props.region)
 		const realms = this.props.crossRealms.map((realm, i)=>{
 			return(
 				<option key={i} value={realm}>{realm}</option>
@@ -62,7 +60,7 @@ class Team extends Component {
 		return(
 			<div>
 				<form onSubmit={this.handleSubmit}>
-					<input type='text' name='player_name' placeholder='Player Name' value={this.state.player_name} onChange={this.handleChange}/>
+					<input type='text' name='name' placeholder='Player Name' value={this.state.player_name} onChange={this.handleChange}/>
 
 					<select name='role' value={this.state.role} onChange={this.handleSelectChange}>
 						<option value=''>Role</option>
