@@ -61,13 +61,16 @@ class Guild extends Component {
 		}))
   }
 
-  condenseCheckBoxes = () => {
-
-  }
+	condenseCheckBoxes = (state) => {
+		let trueS = '';
+		for(let t in state){
+			if(state[t])
+			trueS += t + ',';
+		}
+	}
 
 
 	render(){
-		})
 		return(
 			<div>
 				<input type="checkbox" id="mythicCheck" onChange={this.handleCheckboxChange}/>
@@ -75,7 +78,7 @@ class Guild extends Component {
 				{this.state.mythicCheck ?
 						<div>
 							<ClassList/>
-							<input onChange={this.handleChange} type='text' name='about_mythic' placeholder='About your Mythic team' value={this.state.guild.about_mythic}/>
+							<input onChange={this.handleChange} type='text' name='about_mythic' placeholder='About your Mythic team' value={this.state.about_mythic}/>
 						</div> : null
 				}
 
@@ -84,7 +87,7 @@ class Guild extends Component {
 				{this.state.heroicCheck ?
 					<div>
 						<ClassList/>
-						<input onChange={this.handleChange} type='text' name='about_heroic' placeholder='About your Heroic team' value={this.state.guild.about_heroic}/>
+						<input onChange={this.handleChange} type='text' name='about_heroic' placeholder='About your Heroic team' value={this.state.about_heroic}/>
 					</div> : null
 				}	
 				
@@ -93,7 +96,7 @@ class Guild extends Component {
 				{this.state.rbgCheck ?
 					<div>
 						<ClassList/>
-						<input onChange={this.handleChange} type='text' name='about_rbg' placeholder='About your RBG team' value={this.state.guild.about_rbg}/>
+						<input onChange={this.handleChange} type='text' name='about_rbg' placeholder='About your RBG team' value={this.state.about_rbg}/>
 					</div> : null
 				}
 				<button onClick={this.handleSubmit}>Next</button>
