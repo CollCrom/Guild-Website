@@ -33,22 +33,16 @@ class Team extends Component {
   }
 
   setPlayerImage = () =>{
-  	const state = this.state;
-  	console.log(this.state)
-  	const URI = `https://raider.io/api/v1/characters/profile?region=${state.region}&realm=${state.realm}&name=${state.name}`;
+  	const URI = `https://raider.io/api/v1/characters/profile?region=${this.state.region}&realm=${this.state.realm}&name=${this.state.name}`;
   	fetch(URI)
 		.then((response)=>(response.json()))
 		.then((data)=>{
+			const state = this.state;
 			if(data.statusCode > 400)
 				return;
-			console.log(data)
 			state.img = data.thumbnail_url;
-		})
-		.then(()=>{
-			console.log(state.img)
-			// DOESNT SET THE STATE YET FOR SOME FUCKING REASON
 			this.setState(state)
-		});
+		})
   }
 
 	render(){
