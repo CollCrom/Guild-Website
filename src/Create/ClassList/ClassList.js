@@ -48,6 +48,7 @@ class ClassList extends Component {
 		const name = e.currentTarget.id;
 		state[name] = e.currentTarget.checked;
 		this.setState(state);
+		this.props.condense(this.state, this.props.whichTeam);
 		console.log(this.state);
 	}
 

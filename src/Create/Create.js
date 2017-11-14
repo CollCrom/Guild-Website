@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Guild from './Guild/Guild.js'
 import Player from './Player/Player.js'
+import Team from './Team/Team.js'
 
 class Create extends Component {
 	constructor(){
@@ -20,6 +21,14 @@ class Create extends Component {
 		state.region = region;
 		state.realm = realm;
 		this.setState(state)
+	}
+
+	setGuildId = (id) =>{
+		console.log(id);
+		const state = this.state;
+		state.guildId = id;
+		this.setState(state);
+		console.log(this.state)
 	}
 
 	realmListApiCall = (region) => {
@@ -71,10 +80,10 @@ class Create extends Component {
 
   chooseScreen = () => {
   	if (this.state.screen === 'guild'){
-  		return (<Guild changeScreen={this.changeScreen} setGuildInfo={this.setGuildInfo} realmListApiCall={this.realmListApiCall} realms={this.state.realms}/>)
+  		return (<Guild changeScreen={this.changeScreen} setGuildInfo={this.setGuildInfo} setGuildId={this.setGuildId} realmListApiCall={this.realmListApiCall} realms={this.state.realms}/>)
   	}
   	else if (this.state.screen === 'team'){
-  		return null//(<Team changeScreen={this.changeScreen} />)
+  		return (<Team changeScreen={this.changeScreen} guildId={this.state.guildId}/>)
   	}
   	else if (this.state.screen === 'player'){
   		return (<Player changeScreen={this.changeScreen} guildId={this.state.guildId} region={this.state.region} crossRealmListApiCall={this.crossRealmListApiCall} crossRealms={this.state.crossRealms}/>)

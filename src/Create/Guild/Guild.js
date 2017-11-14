@@ -48,7 +48,7 @@ class Guild extends Component {
       this.postGuild(this.state.guild);
       const state = this.state;
       this.props.setGuildInfo(state.guild.region, state.guild.realm);
-      this.props.changeScreen('player')
+      this.props.changeScreen('team')
       this.clearState(state);
   }
 
@@ -59,7 +59,7 @@ class Guild extends Component {
   }
 
   postGuild = (guild) => {
-  	fetch('http://localhost:9292/create', {
+  	fetch('http://localhost:9292/create/guild', {
 			method: 'POST',
 			body: JSON.stringify({
 				name: this.state.guild.name,
@@ -69,9 +69,10 @@ class Guild extends Component {
 			})
 		})
   		.then((response)=>(response.json()))
-		.then((response)=>(()=>{
-			this.props.guild(response);
-		}))
+		.then((response)=>{
+			console.log(response)
+			this.props.setGuildId(response.id);
+		})
   }
 
 

@@ -8,6 +8,7 @@ class Player extends Component {
 			realm: [''],
 			img: [''],
 			role: [''],
+			team: [''],
 			region: '',
 			guildId: '',
 			playerArr: [true]
@@ -52,6 +53,23 @@ class Player extends Component {
 		})
   }
 
+  postPlayers = () => {
+  	fetch('http://localhost:9292/create/players', {
+			method: 'POST',
+			body: JSON.stringify({
+				name: this.state.name,
+				img: this.state.img,
+				role: this.state.role,
+				team: this.state.team,
+				guildId: this.state.guildId,
+			})
+		})
+  		.then((response)=>(response.json()))
+  		.then((response)=>{
+  			this.props.changeScreen('guild');
+  		})
+  }
+
   addNewPlayer = () =>{
   	const state = this.state;
   	state.playerArr.push(true);
@@ -59,6 +77,7 @@ class Player extends Component {
   	state.realm.push('');
   	state.img.push('');
   	state.role.push('');
+  	state.team.push('');
    	this.setState(state)
   }
 
@@ -83,6 +102,14 @@ class Player extends Component {
 						<option value='Ranged'>Ranged</option>
 					</select>
 
+					<select id={i} name='team' value={this.state.team[i]} onChange={this.handleChange}>
+						<option value=''>Team</option>
+						<option value='Mythic'>Mythic</option>
+						<option value='Heroic'>Heroic</option>
+						<option value='RBG'>RBG</option>
+					</select>
+
+
 					<select id={i} name='realm' value={this.state.realm[i]} onChange={this.handleChange}>
 						<option value=''>Select the realm</option>
 						{realms}
@@ -93,11 +120,9 @@ class Player extends Component {
 
 		return(
 			<div>
-				<form onSubmit={this.handleSubmit}>
-					{players}
-					<button onClick={this.addNewPlayer}>Add Player</button>
-					<input type="submit" value="Submit" />
-				</form>
+				{players}
+				<button onClick={this.addNewPlayer}>Add Player</button>
+				<button onClick={this.handleSubmit}>Submit</button>
 			</div>
 		)
 	}
