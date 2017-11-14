@@ -22,7 +22,6 @@ class Guild extends Component {
       const name = e.currentTarget.name;
       state.guild[name] = e.currentTarget.value;
       this.setState(state);
-      console.log(this.state)
   }
 
   handleSelectChange = (e) =>{
@@ -124,7 +123,6 @@ class Guild extends Component {
 					<label htmlFor="Mythic">Mythic</label>
 					{this.state.mythicCheck ?
 							<div>
-								<input onChange={this.handleChange} type='text' name='lf_mythic' placeholder='Looking for players for Mythic' value={this.state.guild.lf_mythic}/>
 								<div>
 									<div>
 										<div>
