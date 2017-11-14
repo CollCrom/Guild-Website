@@ -1,0 +1,15 @@
+nav {
+  background-color: #001429;
+  height: 3em;
+}
+nav a,
+nav a:hover {
+  color: white;
+  text-decoration: none;
+}
+nav li:hover {
+  background-color: #6198BF;
+}
+nav li {
+  font-size: 2em;
+}
