@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ClassList from '../ClassList/ClassList.js';
+import './Guild.css'
 
 class Guild extends Component {
 	constructor(){
@@ -84,7 +84,8 @@ class Guild extends Component {
 		return(
 			<div>
 				<input onChange={this.handleChange} type='text' name='name' placeholder='Guild Name' value={this.state.guild.name}/>
-				<input onChange={this.handleChange} type='text' name='about' placeholder='About your Guild' value={this.state.guild.about}/>
+
+				<textarea onChange={this.handleChange} type='text' name='about' placeholder='About your Guild' value={this.state.guild.about}/>
 
 				<select name='region' value={this.state.guild.region} onChange={this.handleSelectChange}>
 					<option value=''>Select your region</option>
@@ -96,7 +97,8 @@ class Guild extends Component {
 					<option value=''>Select your realm</option>
 					{realmList}
 				</select>
-				<button onClick={this.handleSubmit}>Next</button>					
+
+				<button className='btn' onClick={this.handleSubmit}>Next</button>					
 			</div>
 		)
 	}
