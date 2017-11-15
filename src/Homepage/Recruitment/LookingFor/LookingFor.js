@@ -23,7 +23,7 @@ class LookingFor extends Component {
 			frostDeathKnight: false,
 			bloodDeathKnight: false,
 			unholyDeathKnight: false,
-			slementalShaman: false,
+			elementalShaman: false,
 			enhancementShaman: false,
 			restorationShaman: false,
 			arcaneMage: false,
@@ -49,13 +49,13 @@ class LookingFor extends Component {
 		const state = this.state;
 		state.data = this.props.data['lf' + this.props.currentTeam];
 		this.setState(state);
-		filterThrough();
+		this.filterThrough();
 	}
 
 	filterThrough = () => {
 		const state = this.state;
-		for (let i = 0; i < data.length; i++){
-			state[data[i]] = true;
+		for (let i = 0; i < state.data.length; i++){
+			state[state.data[i]] = true;
 		}
 		this.setState(state);
 	}
@@ -66,167 +66,134 @@ class LookingFor extends Component {
 				{this.props.currentTeam}<br/>
 				<div>
 					<div>
-						<img id="protectionWarrior" className={this.state.protectionWarrior ? filter : noFilter}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_warrior_defensivestance.jpg" id="protectionWarrior" className={this.state.protectionWarrior ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="armsWarrior" onChange={this.onCheckBox}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_warrior_savageblow.jpg" id="armsWarrior" className={this.state.armsWarrior ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="furyWarrior" onChange={this.onCheckBox}/>
-					</div>
-				</div>
-				<div>
-					<div>
-						<input type="checkbox" id="protectionPaladin" onChange={this.onCheckBox}/>
-						<label htmlFor="protectionPaladin">Protection Paladin</label>
-					</div>
-					<div>
-						<input type="checkbox" id="holyPaladin" onChange={this.onCheckBox}/>
-						<label htmlFor="holyPaladin">Holy Paladin</label>
-					</div>
-					<div>
-						<input type="checkbox" id="retributionPaladin" onChange={this.onCheckBox}/>
-						<label htmlFor="retributionPaladin">Retribution Paladin</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_warrior_innerrage.jpg" id="furyWarrior" className={this.state.furyWarrior ? 'filter' : 'noFilter'}/>
 					</div>
 				</div>
 				<div>
 					<div>
-						<input type="checkbox" id="marksmanHunter" onChange={this.onCheckBox}/>
-						<label htmlFor="marksmanHunter">Marksman Hunter</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_paladin_shieldofthetemplar.jpg" id="protectionPaladin" className={this.state.protectionPaladin ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="survivalHunter" onChange={this.onCheckBox}/>
-						<label htmlFor="survivalHunter">Survival Hunter</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_holybolt.jpg" id="holyPaladin" className={this.state.holyPaladin ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="bmHunter" onChange={this.onCheckBox}/>
-						<label htmlFor="bmHunter">Beast Mastery Hunter</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_auraoflight.jpg" id="retributionPaladin" className={this.state.retributionPaladin ? 'filter' : 'noFilter'}/>
 					</div>
 				</div>
 				<div>
 					<div>
-						<input type="checkbox" id="assassinationRogue" onChange={this.onCheckBox}/>
-						<label htmlFor="assassinationRogue">Assassination Rogue</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_hunter_focusedaim.jpg" id="marksmanHunter" className={this.state.marksmanHunter ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="outlawRogue" onChange={this.onCheckBox}/>
-						<label htmlFor="outlawRogue">Outlaw Rogue</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_hunter_camouflage.jpg" id="survivalHunter" className={this.state.survivalHunter ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="subtletyRogue" onChange={this.onCheckBox}/>
-						<label htmlFor="subtletyRogue">Subtlety Rogue</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_hunter_bestialdiscipline.jpg" id="bmHunter" className={this.state.bmHunter ? 'filter' : 'noFilter'}/>
+					</div>
+				</div>
+				<div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_rogue_deadlybrew.jpg" id="assassinationRogue" className={this.state.assassinationRogue ? 'filter' : 'noFilter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/inv_sword_30.jpg" id="outlawRogue" className={this.state.outlawRogue ? 'filter' : 'noFilter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_stealth.jpg" id="subtletyRogue" className={this.state.subtletyRogue ? 'filter' : 'noFilter'}/>
 					</div>	
 				</div>
 				<div>
 					<div>
-						<input type="checkbox" id="disciplinePriest" onChange={this.onCheckBox}/>
-						<label htmlFor="disciplinePriest">Discipline Priest</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_powerwordshield.jpg" id="disciplinePriest" className={this.state.disciplinePriest ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="holyPriest" onChange={this.onCheckBox}/>
-						<label htmlFor="holyPriest">Holy Priest</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_guardianspirit.jpg" id="holyPriest" className={this.state.holyPriest ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="shadowPriest" onChange={this.onCheckBox}/>
-						<label htmlFor="shadowPriest">Shadow Priest</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowwordpain.jpg" id="shadowPriest" className={this.state.shadowPriest ? 'filter' : 'noFilter'}/>
 					</div>
 				</div>
 				<div>
 					<div>
-						<input type="checkbox" id="frostDeathKnight" onChange={this.onCheckBox}/>
-						<label htmlFor="frostDeathKnight">Frost Death Knight</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_deathknight_frostpresence.jpg" id="frostDeathKnight" className={this.state.frostDeathKnight ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="bloodDeathKnight" onChange={this.onCheckBox}/>
-						<label htmlFor="bloodDeathKnight">Blood Death Knight</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_deathknight_bloodpresence.jpg" id="bloodDeathKnight" className={this.state.bloodDeathKnight ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="unholyDeathKnight" onChange={this.onCheckBox}/>
-						<label htmlFor="unholyDeathKnight">Unholy Death Knight</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_deathknight_unholypresence.jpg" id="unholyDeathKnight" className={this.state.unholyDeathKnight ? 'filter' : 'noFilter'}/>
 					</div>
 				</div>
 				<div>
 					<div>
-						<input type="checkbox" id="slementalShaman" onChange={this.onCheckBox}/>
-						<label htmlFor="elementalShaman">Elemental Shaman</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_lightning.jpg" id="elementalShaman" className={this.state.elementalShaman ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="enhancementShaman" onChange={this.onCheckBox}/>
-						<label htmlFor="enhancementShaman">Enhancement Shaman</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shaman_improvedstormstrike.jpg" id="enhancementShaman" className={this.state.enhancementShaman ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="restorationShaman" onChange={this.onCheckBox}/>
-						<label htmlFor="restorationShaman">Restoration Shaman</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_magicimmunity.jpg" id="restorationShaman" className={this.state.restorationShaman ? 'filter' : 'noFilter'}/>
 					</div>
 				</div>
 				<div>
 					<div>
-						<input type="checkbox" id="arcaneMage" onChange={this.onCheckBox}/>
-						<label htmlFor="arcaneMage">Arcane Mage</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_magicalsentry.jpg" id="arcaneMage" className={this.state.arcaneMage ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="fireMage" onChange={this.onCheckBox}/>
-						<label htmlFor="fireMage">Fire Mage</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_fire_firebolt02.jpg" id="fireMage" className={this.state.fireMage ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="frostMage" onChange={this.onCheckBox}/>
-						<label htmlFor="frostMage">Frost Mage</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_frost_frostbolt02.jpg" id="frostMage" className={this.state.frostMage ? 'filter' : 'noFilter'}/>
 					</div>
 				</div>
 				<div>
 					<div>
-						<input type="checkbox" id="afflictionWarlock" onChange={this.onCheckBox}/>
-						<label htmlFor="afflictionWarlock">Affliction Warlock</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_deathcoil.jpg" id="afflictionWarlock" className={this.state.afflictionWarlock ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="demonologyWarlock" onChange={this.onCheckBox}/>
-						<label htmlFor="demonologyWarlock">Demonology Warlock</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_metamorphosis.jpg" id="demonologyWarlock" className={this.state.demonologyWarlock ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="destructionWarlock" onChange={this.onCheckBox}/>
-						<label htmlFor="destructionWarlock">Destruction Warlock</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_rainoffire.jpg" id="destructionWarlock" className={this.state.destructionWarlock ? 'filter' : 'noFilter'}/>
 					</div>
 				</div>
 				<div>
 					<div>
-						<input type="checkbox" id="brewmasterMonk" onChange={this.onCheckBox}/>
-						<label htmlFor="brewmasterMonk">Brewmaster Monk</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_monk_brewmaster_spec.jpg" id="brewmasterMonk" className={this.state.brewmasterMonk ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="mistweaverMonk" onChange={this.onCheckBox}/>
-						<label htmlFor="mistweaverMonk">Mistweaver Monk</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_monk_mistweaver_spec.jpg" id="mistweaverMonk" className={this.state.mistweaverMonk ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="windwalkerMonk" onChange={this.onCheckBox}/>
-						<label htmlFor="windwalkerMonk">Windwalker Monk</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_monk_windwalker_spec.jpg" id="windwalkerMonk" className={this.state.windwalkerMonk ? 'filter' : 'noFilter'}/>
 					</div>
 				</div>
 				<div>
 					<div>
-						<input type="checkbox" id="guardianDruid" onChange={this.onCheckBox}/>
-						<label htmlFor="guardianDruid">Guardian Druid</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_racial_bearform.jpg" id="guardianDruid" className={this.state.guardianDruid ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="feralDruid" onChange={this.onCheckBox}/>
-						<label htmlFor="feralDruid">Feral Druid</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_druid_catform.jpg" id="feralDruid" className={this.state.feralDruid ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="balanceDruid" onChange={this.onCheckBox}/>
-						<label htmlFor="balanceDruid">Balance Druid</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_starfall.jpg" id="balanceDruid" className={this.state.balanceDruid ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="restorationDruid" onChange={this.onCheckBox}/>
-						<label htmlFor="restorationDruid">Restoration Druid</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_healingtouch.jpg" id="restorationDruid" className={this.state.restorationDruid ? 'filter' : 'noFilter'}/>
 					</div>
 				</div>
 				<div>
 					<div>
-						<input type="checkbox" id="vengeanceDemonHunter" onChange={this.onCheckBox}/>
-						<label htmlFor="vengeanceDemonHunter">Vengeance Demon Hunter</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_demonhunter_spectank.jpg" id="vengeanceDemonHunter" className={this.state.vengeanceDemonHunter ? 'filter' : 'noFilter'}/>
 					</div>
 					<div>
-						<input type="checkbox" id="havocDemonHunter" onChange={this.onCheckBox}/>
-						<label htmlFor="havocDemonHunter">Havoc Demon Hunter</label>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_demonhunter_specdps.jpg" id="havocDemonHunter" className={this.state.havocDemonHunter ? 'filter' : 'noFilter'}/>
 					</div>
 				</div>
 			</div>
