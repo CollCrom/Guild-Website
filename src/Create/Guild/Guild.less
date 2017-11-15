@@ -1,3 +1,34 @@
-input {
-	color: red;
+.col-sm {
+	display: flex;
+	justify-content: center;
+}
+
+.guildName {
+	input{
+		text-align: center;
+		font-size: 4em;
+		height: 100px;
+		width: 1000px;
+		background-color: #1F4973;
+		color: #B0D1F1;
+		maxlength: 30;
+	}
+	input::placeholder {
+		color: #B0D1F1;
+	}
+}
+
+.guildAbout {
+	textarea{
+    	resize: none;
+    	width: 1000px;
+    	height: 100px;
+    	background-color: #1F4973;
+		color: #B0D1F1;
+	}
+	textarea::placeholder {
+		color: #B0D1F1;
+		text-align: center;
+		font-size: 4em;
+	}
 }
