@@ -1,0 +1,22 @@
+.title {
+  font-size: 3em;
+}
+.hide {
+  display: none;
+}
+.Team textarea {
+  resize: none;
+  width: 800px;
+  height: 100px;
+  background-color: #1F4973;
+  color: #B0D1F1;
+}
+.Team textarea::placeholder {
+  color: #B0D1F1;
+  text-align: center;
+  font-size: 4em;
+}
+.Team .btn {
+  color: #B0D1F1;
+  background-color: #1F4973;
+}

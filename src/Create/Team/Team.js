@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import ClassList from '../ClassList/ClassList.js';
+import './Team.css'
 
 class Guild extends Component {
 	constructor(){
@@ -26,6 +27,9 @@ class Guild extends Component {
   handleCheckboxChange = (e) =>{
   	const state = this.state;
   	const name = e.currentTarget.id
+  	state.mythicCheck = false;
+    state.heroicCheck = false;
+    state.rbgCheck = false;
   	state[name] = e.currentTarget.checked
   	this.setState(state)
   }
@@ -76,34 +80,59 @@ class Guild extends Component {
 
 	render(){
 		return(
-			<div>
-				<input type="checkbox" id="mythicCheck" onChange={this.handleCheckboxChange}/>
-				<label htmlFor="Mythic">Mythic</label>
-				{this.state.mythicCheck ?
-					<div>
-						<ClassList condense={this.condenseCheckBoxes} whichTeam={'lfMythic'}/>
-						<input onChange={this.handleChange} type='text' name='aboutMythic' placeholder='About your Mythic team' value={this.state.aboutMythic}/>
-					</div> : null
-				}
-
-				<input type="checkbox" id="heroicCheck" onChange={this.handleCheckboxChange}/>
-				<label htmlFor="Heroic">Heroic</label>
-				{this.state.heroicCheck ?
-					<div>
-						<ClassList condense={this.condenseCheckBoxes} whichTeam={'lfHeroic'}/>
-						<input onChange={this.handleChange} type='text' name='aboutHeroic' placeholder='About your Heroic team' value={this.state.aboutHeroic}/>
-					</div> : null
-				}	
-				
-				<input type="checkbox" id="rbgCheck" onChange={this.handleCheckboxChange}/>
-				<label htmlFor="RBG">RBG</label>
-				{this.state.rbgCheck ?
-					<div>
-						<ClassList condense={this.condenseCheckBoxes} whichTeam={'lfRbg'}/>
-						<input onChange={this.handleChange} type='text' name='aboutRbg' placeholder='About your RBG team' value={this.state.aboutRbg}/>
-					</div> : null
-				}
-				<button onClick={this.handleSubmit}>Next</button>
+			<div className='Team'>
+				<div className='container'>
+					<div className='row'>
+						<div className='col-sm title'>
+							What class your recruiting and for what team
+						</div>
+					</div>
+					<div className='row'>
+						<div className="col-sm">
+							<input type="checkbox" id="mythicCheck" onChange={this.handleCheckboxChange} checked={this.state.mythicCheck}/>
+							<label htmlFor="Mythic">Mythic</label>
+						</div>
+						<div className="col-sm">
+							<input type="checkbox" id="heroicCheck" onChange={this.handleCheckboxChange} checked={this.state.heroicCheck}/>
+							<label htmlFor="Heroic">Heroic</label>
+						</div>
+						<div className="col-sm">
+							<input type="checkbox" id="rbgCheck" onChange={this.handleCheckboxChange} checked={this.state.rbgCheck}/>
+							<label htmlFor="RBG">RBG</label>
+						</div>
+					</div>
+					<div className='row'>
+						<div className="col-sm">
+							<div className={this.state.mythicCheck ? 'show' : 'hide'}>
+								<ClassList condense={this.condenseCheckBoxes} whichTeam={'lfMythic'}/>
+							</div>
+							<div className={this.state.heroicCheck ? 'show' : 'hide'}>
+								<ClassList condense={this.condenseCheckBoxes} whichTeam={'lfHeroic'}/>
+							</div>
+							<div className={this.state.rbgCheck ? 'show' : 'hide'}>
+								<ClassList condense={this.condenseCheckBoxes} whichTeam={'lfRbg'}/>
+							</div>
+						</div>
+					</div>
+					<div className='row'>
+						<div className='col-sm'>
+							<div className={this.state.mythicCheck ? 'show' : 'hide'}>
+								<textarea onChange={this.handleChange} type='text' name='aboutMythic' placeholder='About your Mythic team' value={this.state.aboutMythic}/>
+							</div>
+							<div className={this.state.heroicCheck ? 'show' : 'hide'}>
+								<textarea onChange={this.handleChange} type='text' name='aboutHeroic' placeholder='About your Heroic team' value={this.state.aboutHeroic}/>
+							</div>
+							<div className={this.state.rbgCheck ? 'show' : 'hide'}>
+								<textarea onChange={this.handleChange} type='text' name='aboutRbg' placeholder='About your RBG team' value={this.state.aboutRbg}/>
+							</div>
+						</div>
+					</div>
+					<div className='row'>
+						<div className='col-sm'>
+							<button className='btn' onClick={this.handleSubmit}>Next</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		)
 	}

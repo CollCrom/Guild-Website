@@ -3,7 +3,9 @@ nav {
   height: 3em;
 }
 nav a,
-nav a:hover {
+nav a:hover,
+nav a:active,
+nav a:focus {
   color: white;
   text-decoration: none;
 }

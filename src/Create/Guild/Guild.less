@@ -1,3 +1,58 @@
-input {
-	color: red;
+@fontColor: #B0D1F1;
+
+.col-sm {
+	display: flex;
+	justify-content: center;
+}
+
+.guildName {
+	margin: 2%;
+	input{
+		text-align: center;
+		font-size: 4em;
+		height: 100px;
+		width: 1000px;
+		background-color: #1F4973;
+		color: @fontColor;
+		maxlength: 30;
+	}
+	input::placeholder {
+		color: @fontColor;
+	}
+}
+
+.guildAbout {
+	margin: 2%;
+	textarea{
+    	resize: none;
+    	width: 1000px;
+    	height: 100px;
+    	background-color: #1F4973;
+		color: @fontColor;
+	}
+	textarea::placeholder {
+		color: @fontColor;
+		text-align: center;
+		font-size: 4em;
+	}
+}
+
+.select {
+	width: 30%;
+	color: @fontColor;
+	--styled-select-arrow__color: @fontColor;
+	--styled-select-placeholder__color: @fontColor;
+	--styled-select__color: @fontColor;
+	--styled-select__background-color: #1F4973;
+	--styled-select-option__background-color--focused: #6198BF;
+	--styled-select-option__background-color--selected: #6198BF;
+	--styled-select-no-results__color: @fontColor;
+	--styled-select-option__color: @fontColor;
+	--styled-select-option__color--focused: @fontColor;
+    --styled-select-option__color--selected: @fontColor;
+}
+
+.btn {
+	color: @fontColor;
+	background-color: #1F4973;
 }

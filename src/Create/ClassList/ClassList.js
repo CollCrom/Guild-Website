@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './ClassList.css'
 
 class ClassList extends Component {
 	constructor(props){
@@ -49,14 +50,13 @@ class ClassList extends Component {
 		state[name] = e.currentTarget.checked;
 		this.setState(state);
 		this.props.condense(this.state, this.props.whichTeam);
-		console.log(this.state);
 	}
 
 	render(){
 		return(
-			<div>
-				<div>
-					<div>
+			<div className='ClassList'>
+				<div className='flex'>
+					<div className='card warrior'>
 						<div>
 							<input type="checkbox" id="protectionWarrior" onChange={this.onCheckBox}/>
 							<label htmlFor="protectionWarrior">Protection Warrior</label>
@@ -70,7 +70,7 @@ class ClassList extends Component {
 							<label htmlFor="furyWarrior">Fury Warrior</label>
 						</div>
 					</div>
-					<div>
+					<div className='card paladin'>
 						<div>
 							<input type="checkbox" id="protectionPaladin" onChange={this.onCheckBox}/>
 							<label htmlFor="protectionPaladin">Protection Paladin</label>
@@ -84,7 +84,7 @@ class ClassList extends Component {
 							<label htmlFor="retributionPaladin">Retribution Paladin</label>
 						</div>
 					</div>
-					<div>
+					<div className='card hunter'>
 						<div>
 							<input type="checkbox" id="marksmanHunter" onChange={this.onCheckBox}/>
 							<label htmlFor="marksmanHunter">Marksman Hunter</label>
@@ -98,7 +98,7 @@ class ClassList extends Component {
 							<label htmlFor="bmHunter">Beast Mastery Hunter</label>
 						</div>
 					</div>
-					<div>
+					<div className='card rogue'>
 						<div>
 							<input type="checkbox" id="assassinationRogue" onChange={this.onCheckBox}/>
 							<label htmlFor="assassinationRogue">Assassination Rogue</label>
@@ -112,7 +112,7 @@ class ClassList extends Component {
 							<label htmlFor="subtletyRogue">Subtlety Rogue</label>
 						</div>	
 					</div>
-					<div>
+					<div className='card priest'>
 						<div>
 							<input type="checkbox" id="disciplinePriest" onChange={this.onCheckBox}/>
 							<label htmlFor="disciplinePriest">Discipline Priest</label>
@@ -126,7 +126,7 @@ class ClassList extends Component {
 							<label htmlFor="shadowPriest">Shadow Priest</label>
 						</div>
 					</div>
-					<div>
+					<div className='card dk'>
 						<div>
 							<input type="checkbox" id="frostDeathKnight" onChange={this.onCheckBox}/>
 							<label htmlFor="frostDeathKnight">Frost Death Knight</label>
@@ -140,7 +140,7 @@ class ClassList extends Component {
 							<label htmlFor="unholyDeathKnight">Unholy Death Knight</label>
 						</div>
 					</div>
-					<div>
+					<div className='card shaman'>
 						<div>
 							<input type="checkbox" id="slementalShaman" onChange={this.onCheckBox}/>
 							<label htmlFor="elementalShaman">Elemental Shaman</label>
@@ -154,7 +154,7 @@ class ClassList extends Component {
 							<label htmlFor="restorationShaman">Restoration Shaman</label>
 						</div>
 					</div>
-					<div>
+					<div className='card mage'>
 						<div>
 							<input type="checkbox" id="arcaneMage" onChange={this.onCheckBox}/>
 							<label htmlFor="arcaneMage">Arcane Mage</label>
@@ -168,7 +168,7 @@ class ClassList extends Component {
 							<label htmlFor="frostMage">Frost Mage</label>
 						</div>
 					</div>
-					<div>
+					<div className='card warlock'>
 						<div>
 							<input type="checkbox" id="afflictionWarlock" onChange={this.onCheckBox}/>
 							<label htmlFor="afflictionWarlock">Affliction Warlock</label>
@@ -182,7 +182,7 @@ class ClassList extends Component {
 							<label htmlFor="destructionWarlock">Destruction Warlock</label>
 						</div>
 					</div>
-					<div>
+					<div className='card monk'>
 						<div>
 							<input type="checkbox" id="brewmasterMonk" onChange={this.onCheckBox}/>
 							<label htmlFor="brewmasterMonk">Brewmaster Monk</label>
@@ -196,7 +196,7 @@ class ClassList extends Component {
 							<label htmlFor="windwalkerMonk">Windwalker Monk</label>
 						</div>
 					</div>
-					<div>
+					<div className='card druid'>
 						<div>
 							<input type="checkbox" id="guardianDruid" onChange={this.onCheckBox}/>
 							<label htmlFor="guardianDruid">Guardian Druid</label>
@@ -214,7 +214,7 @@ class ClassList extends Component {
 							<label htmlFor="restorationDruid">Restoration Druid</label>
 						</div>
 					</div>
-					<div>
+					<div className='card dh'>
 						<div>
 							<input type="checkbox" id="vengeanceDemonHunter" onChange={this.onCheckBox}/>
 							<label htmlFor="vengeanceDemonHunter">Vengeance Demon Hunter</label>

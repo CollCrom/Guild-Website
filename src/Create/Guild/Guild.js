@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Select from 'react-styled-select'
 import './Guild.css'
 
 class Guild extends Component {
@@ -25,13 +26,12 @@ class Guild extends Component {
 
   handleSelectChange = (e) =>{
   	const state = this.state;
-  	const name = e.currentTarget.name;
-  	if(name === 'region'){
-  		state.guild[name] = e.currentTarget.value;
-  		this.props.realmListApiCall(state.guild[name]);
+  	if(e === 'US' || e === 'EU'){
+  		state.guild.region = e;
+  		this.props.realmListApiCall(state.guild.region);
   	}
   	else{
-  		state.guild[name] = e.currentTarget.value;
+  		state.guild.realm = e;
 			this.setState(state);
   	}
   }
@@ -77,29 +77,57 @@ class Guild extends Component {
 
 
 	render(){
-		const realmList = this.props.realms.map((realm, i)=>{
+		const realmOptions = this.props.realms.map((realm, i)=>{
 			return(
-				<option key={i} value={realm.slug}>{realm.name}</option>
+				{label: realm.name, value: realm.slug}
 			)
 		})
+		const regionOptions = [
+      { label: "EU", value: 'EU'},
+      { label: 'US', value: 'US'},
+    ]
 		return(
-			<div>
-				<input onChange={this.handleChange} type='text' name='name' placeholder='Guild Name' value={this.state.guild.name}/>
-
-				<textarea onChange={this.handleChange} type='text' name='about' placeholder='About your Guild' value={this.state.guild.about}/>
-
-				<select name='region' value={this.state.guild.region} onChange={this.handleSelectChange}>
-					<option value=''>Select your region</option>
-					<option value='EU'>EU</option>
-					<option value='US'>US</option>
-				</select>
-
-				<select name='realm' value={this.state.guild.realm} onChange={this.handleSelectChange}>
-					<option value=''>Select your realm</option>
-					{realmList}
-				</select>
-
-				<button className='btn' onClick={this.handleSubmit}>Next</button>					
+			<div className="container">
+				<div className="row">
+					<div className="col-sm">
+						<div className='guildName'>
+							<input onChange={this.handleChange} type='text' name='name' placeholder='Guild Name' value={this.state.guild.name} maxLength="24"/>
+						</div>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-sm">
+						<div className='guildAbout'>
+							<textarea onChange={this.handleChange} type='text' name='about' placeholder='About your Guild' value={this.state.guild.about}/>
+						</div>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-sm">
+						<Select
+							className='region select'
+							options={regionOptions}
+							placeholder='Select your Region'
+							value={this.state.guild.region} 
+							onChange={this.handleSelectChange}
+						/>
+						{this.state.guild.region ? 
+							<Select
+								className='realm select'
+								options={realmOptions}
+								placeholder='Select your Realm'
+								value={this.state.guild.realm} 
+								onChange={this.handleSelectChange}
+								searchable
+							/> : null
+						}
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-sm">
+						<button className='btn btn-primary' onClick={this.handleSubmit}>Next</button>
+					</div>
+				</div>
 			</div>
 		)
 	}
