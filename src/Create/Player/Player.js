@@ -35,6 +35,7 @@ class Player extends Component {
       state.playerArr.forEach((player, i)=>{
       	this.setPlayerImage(i)
       })
+      this.postPlayers();
       console.log(this.state.img, 'img state')
   }
 
