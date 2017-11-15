@@ -35,6 +35,7 @@ class Player extends Component {
       state.playerArr.forEach((player, i)=>{
       	this.setPlayerImage(i)
       })
+      this.setState(state);
       this.postPlayers();
       console.log(this.state.img, 'img state')
   }
@@ -45,12 +46,12 @@ class Player extends Component {
   	fetch(URI)
 		.then((response)=>(response.json()))
 		.then((data)=>{
-			const state = this.state;
+			const thisState = this.state;
 			if(data.statusCode > 400)
-				state.img[index] = '';
+				thisState.img[index] = '';
 			else
-				state.img[index] = data.thumbnail_url;
-			this.setState(state)
+				thisState.img[index] = data.thumbnail_url;
+			this.setState(thisState)
 		})
   }
 
