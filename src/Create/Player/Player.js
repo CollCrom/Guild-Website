@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Select from 'react-styled-select'
 
 class Player extends Component {
 	constructor(props){
@@ -16,17 +17,20 @@ class Player extends Component {
 	}
 	handleChange = (e) => {
       const state = this.state;
-      const name = e.currentTarget.name;
-      const index = e.currentTarget.id;
-      state[name][index] = e.currentTarget.value;
+      if(!e.currentTarget){
+      	const index = e.value
+	      if(e === 'Melee' || e === 'Ranged' || e === 'Healer' || e === 'Tank')
+	      	state.role[index] = e;
+	      else
+	      	state.realm[index] = e;
+	    }
+	    else{
+	    	const index = e.currentTarget.id;
+	    	const name = e.currentTarget.name
+	    	state[name][index] = e.currentTarget.value
+	    }
       this.setState(state);
   }
-	handleSelectChange = (e) =>{
-		const state = this.state;
-		const name = e.currentTarget.name;
-		state[name] = e.currentTarget.value;
-		this.setState(state)
-	}
 	handleSubmit = (e) =>{
       e.preventDefault();
       const state = this.state;
@@ -88,42 +92,56 @@ class Player extends Component {
 				<option key={i} value={realm}>{realm}</option>
 			)
 		})
+		const realmOptions = this.props.crossRealms.map((realm, i)=>{
+			return(
+				{label: realm, value: realm}
+			)
+		})
+		const roleOptions = [
+			{label: 'Tank', value: 'Tank'},
+			{label: 'Healer', value: 'Healer'},
+			{label: 'Melee', value: 'Melee'},
+			{label: 'Ranged', value: 'Ranged'}
+		]
+		const teamOptions = [
+			{label: 'Mythic', value: 'Mythic'},
+			{label: 'Heroic', value: 'Heroic'},
+			{label: 'RBG', value: 'RBG'}
+		]
 
 
 		const players = this.state.playerArr.map((player, i)=>{
 			return(
-				<div key={i}>
-		  		<input id={i} type='text' name='name' placeholder='Player Name' value={this.state.name[i]} onChange={this.handleChange}/>
+				<div key={i} className=>
+		  		<input id={i} type='text' name='name' placeholder='Player Name' value={this.state.name[i]} onChange={this.handleChange} maxLength="12"/>
 
-					<select id={i} name='role' value={this.state.role[i]} onChange={this.handleChange}>
-						<option value=''>Role</option>
-						<option value='Tank'>Tank</option>
-						<option value='Healer'>Healer</option>
-						<option value='Melee'>Melee</option>
-						<option value='Ranged'>Ranged</option>
-					</select>
-
-					<select id={i} name='team' value={this.state.team[i]} onChange={this.handleChange}>
-						<option value=''>Team</option>
-						<option value='Mythic'>Mythic</option>
-						<option value='Heroic'>Heroic</option>
-						<option value='RBG'>RBG</option>
-					</select>
-
-
-					<select id={i} name='realm' value={this.state.realm[i]} onChange={this.handleChange}>
-						<option value=''>Select the realm</option>
-						{realms}
-					</select>
+					<Select 
+						options={roleOptions} 
+						placeholder='Role' 
+						onChange={this.handleChange}
+						value={i}
+					/>
+					<Select
+						options={teamOptions}
+						placeholder='Team'
+						onChange={this.handleChange}
+						value={i}
+					/>
+					<Select
+						options={realmOptions}
+						placeholder='Select Realm'
+						onChange={this.handleChange}
+						value={i}
+					/>
 				</div>
 			)
 		})
 
 		return(
-			<div>
+			<div className='Player'>
 				{players}
-				<button onClick={this.addNewPlayer}>Add Player</button>
-				<button onClick={this.handleSubmit}>Submit</button>
+				<button className='btn' onClick={this.addNewPlayer}>Add Player</button>
+				<button className='btn' onClick={this.handleSubmit}>Submit</button>
 			</div>
 		)
 	}

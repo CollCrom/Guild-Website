@@ -24,11 +24,9 @@ class Create extends Component {
 	}
 
 	setGuildId = (id) =>{
-		console.log(id);
 		const state = this.state;
 		state.guildId = id;
 		this.setState(state);
-		console.log(this.state)
 	}
 
 	realmListApiCall = (region) => {

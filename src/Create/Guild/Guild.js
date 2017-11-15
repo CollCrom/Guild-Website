@@ -70,7 +70,6 @@ class Guild extends Component {
 		})
   		.then((response)=>(response.json()))
 		.then((response)=>{
-			console.log(response)
 			this.props.setGuildId(response.id);
 		})
   }
