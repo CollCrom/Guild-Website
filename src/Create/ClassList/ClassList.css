@@ -1,0 +1,50 @@
+.ClassList .flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.ClassList .card {
+  display: flex;
+  justify-content: center;
+  min-height: 150px;
+  width: 200px;
+  flex-basis: 20%;
+  margin: .5%;
+  padding: 1%;
+}
+.ClassList .warrior {
+  background-color: #C79C6E;
+}
+.ClassList .paladin {
+  background-color: #F58CBA;
+}
+.ClassList .hunter {
+  background-color: #ABD473;
+}
+.ClassList .rogue {
+  background-color: #FFF569;
+}
+.ClassList .priest {
+  background-color: #FFFFFF;
+}
+.ClassList .dk {
+  background-color: #C41F3B;
+}
+.ClassList .shaman {
+  background-color: #0070DE;
+}
+.ClassList .mage {
+  background-color: #69CCF0;
+}
+.ClassList .warlock {
+  background-color: #9482C9;
+}
+.ClassList .monk {
+  background-color: #00FF96;
+}
+.ClassList .druid {
+  background-color: #FF7D0A;
+}
+.ClassList .dh {
+  background-color: #A330C9;
+}

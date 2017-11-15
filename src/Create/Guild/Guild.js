@@ -105,7 +105,7 @@ class Guild extends Component {
 				<div className="row">
 					<div className="col-sm">
 						<Select
-							className='region-select'
+							className='region select'
 							options={regionOptions}
 							placeholder='Select your Region'
 							value={this.state.guild.region} 
@@ -113,7 +113,7 @@ class Guild extends Component {
 						/>
 						{this.state.guild.region ? 
 							<Select
-								className='realm-select'
+								className='realm select'
 								options={realmOptions}
 								placeholder='Select your Realm'
 								value={this.state.guild.realm} 
@@ -125,7 +125,7 @@ class Guild extends Component {
 				</div>
 				<div className="row">
 					<div className="col-sm">
-						<button className='btn' onClick={this.handleSubmit}>Next</button>
+						<button className='btn btn-primary' onClick={this.handleSubmit}>Next</button>
 					</div>
 				</div>
 			</div>

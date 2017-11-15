@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
 }
+.guildName {
+  margin: 2%;
+}
 .guildName input {
   text-align: center;
   font-size: 4em;
@@ -14,6 +17,9 @@
 .guildName input::placeholder {
   color: #B0D1F1;
 }
+.guildAbout {
+  margin: 2%;
+}
 .guildAbout textarea {
   resize: none;
   width: 1000px;
@@ -25,4 +31,22 @@
   color: #B0D1F1;
   text-align: center;
   font-size: 4em;
+}
+.select {
+  width: 30%;
+  color: #B0D1F1;
+  --styled-select-arrow__color: #B0D1F1;
+  --styled-select-placeholder__color: #B0D1F1;
+  --styled-select__color: #B0D1F1;
+  --styled-select__background-color: #1F4973;
+  --styled-select-option__background-color--focused: #6198BF;
+  --styled-select-option__background-color--selected: #6198BF;
+  --styled-select-no-results__color: #B0D1F1;
+  --styled-select-option__color: #B0D1F1;
+  --styled-select-option__color--focused: #B0D1F1;
+  --styled-select-option__color--selected: #B0D1F1;
+}
+.btn {
+  color: #B0D1F1;
+  background-color: #1F4973;
 }
