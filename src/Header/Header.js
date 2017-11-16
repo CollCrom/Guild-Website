@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Homepage from '../Homepage/Homepage.js'
-import Contact from '../Contact/Contact.js'
+import About from '../About/About.js'
 import Roster from '../Roster/Roster.js'
 import Create from '../Create/Create.js'
 import './Header.css'
@@ -52,7 +52,7 @@ class Header extends Component {
 						<ul className="nav justify-content-center nav-fill">
 							<li className="nav-item"><Link to="/">{this.state.guildName}</Link></li>
 							<li className="nav-item"><Link to="/roster">Roster</Link></li>
-							<li className="nav-item"><Link to="/contact">Contact</Link></li>
+							<li className="nav-item"><Link to="/about">About</Link></li>
 							<li className="nav-item"><Link to="/create">Create New</Link></li>
 							<li className="nav-item">
 								<select name='guild' onChange={this.handleSelectChange}>
@@ -63,7 +63,7 @@ class Header extends Component {
 		      </nav>
 			<Route exact path="/" component={() => (<Homepage guildId={this.state.guildId} currentTeam={this.props.currentTeam} changeTeamInfo={this.props.changeTeamInfo}/>)}/>
 	      	<Route path="/roster" component={() => (<Roster guildId={this.state.guildId} currentTeam={this.props.currentTeam} changeTeamInfo={this.props.changeTeamInfo} />)}/>
-	      	<Route path="/contact" component={Contact}/>
+	      	<Route path="/about" component={About}/>
 	      	<Route path="/create" component={Create}/>
       	</div>
 			</Router>

@@ -35,7 +35,7 @@ class Recruitment extends Component {
 
 	render(){
 		return(
-			<div>
+			<div className="bigContainer">
 				<About currentTeam={this.props.currentTeam} data={this.state}/>
 				<LookingFor currentTeam={this.props.currentTeam} data={this.state}/>
 			</div>

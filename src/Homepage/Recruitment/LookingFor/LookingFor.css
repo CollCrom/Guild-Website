@@ -1,7 +1,16 @@
 .wowClasses {
   display: flex;
   flex-direction: row;
+  width: 25vw;
+  justify-content: space-between;
+}
+.wowClasses img {
+  border-radius: 5px;
 }
 .filter {
   filter: grayscale(1) blur(1px);
+}
+.classContainer {
+  display: flex;
+  flex-direction: row;
 }
