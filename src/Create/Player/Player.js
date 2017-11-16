@@ -16,21 +16,24 @@ class Player extends Component {
 			playerArr: [true]
 		}
 	}
-	handleChange = (e) => {
-      const state = this.state;
-      if(!e.currentTarget){
-      	const index = e.value
-	      if(e === 'Melee' || e === 'Ranged' || e === 'Healer' || e === 'Tank')
-	      	state.role[index] = e;
-	      else
-	      	state.realm[index] = e;
-	    }
-	    else{
-	    	const index = e.currentTarget.id;
-	    	const name = e.currentTarget.name
-	    	state[name][index] = e.currentTarget.value
-	    }
-      this.setState(state);
+	handleSelectChange = (e, value) => {
+     const state = this.state;
+    const index = e;
+    if(value === 'Healer' || value === 'Melee' || value === 'Ranged' || value === 'Tank')
+      state.role[index] = value;
+    else if (value === 'RBG' || value === 'Mythic' || value === 'Heroic')
+    	state.team[index] = value
+    else
+      state.realm[index] = value;
+    this.setState(state);
+    console.log(this.state)
+  }
+  handleChange = (e) =>{
+  	const state = this.state;
+  	const index = e.currentTarget.id
+  	const name = e.currentTarget.name;
+  	state[name][index] = e.currentTarget.value;
+  	this.setState(state)
   }
 	handleSubmit = (e) =>{
       e.preventDefault();
@@ -113,20 +116,17 @@ class Player extends Component {
 					<Select 
 						options={roleOptions} 
 						placeholder='Role' 
-						onChange={this.handleChange}
-						value={i}
+						onChange={this.handleSelectChange.bind(this,i)}
 					/>
 					<Select
 						options={teamOptions}
 						placeholder='Team'
-						onChange={this.handleChange}
-						value={i}
+						onChange={this.handleSelectChange.bind(this,i)}
 					/>
 					<Select
 						options={realmOptions}
 						placeholder='Select Realm'
-						onChange={this.handleChange}
-						value={i}
+						onChange={this.handleSelectChange.bind(this,i)}
 					/>
 				</div>
 			)
