@@ -26,7 +26,6 @@ class Player extends Component {
     else
       state.realm[index] = value;
     this.setState(state);
-    console.log(this.state)
   }
   handleChange = (e) =>{
   	const state = this.state;
@@ -45,6 +44,7 @@ class Player extends Component {
       })
       this.setState(state);
       this.postPlayers();
+      console.log(this.state)
   }
 
   setPlayerImage = (index) =>{
