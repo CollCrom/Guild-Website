@@ -8,7 +8,7 @@
   border-radius: 5px;
 }
 .filter {
-  filter: grayscale(1) blur(1px);
+  filter: grayscale(1);
 }
 .classContainer {
   display: flex;
