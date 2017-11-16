@@ -41,7 +41,8 @@ class Player extends Component {
       state.region = this.props.region;
       state.guildId = this.props.guildId;
       state.playerArr.forEach((player, i)=>{
-      	this.setPlayerImage(i)
+      	if(!state.img)
+      		this.setPlayerImage(i);
       })
       this.setState(state);
       this.postPlayers();
@@ -65,6 +66,7 @@ class Player extends Component {
 
   postPlayers = () => {
   	console.log(this.state, 'posting platers')
+  	console.log(this.state.img)
   	fetch('http://localhost:9292/create/players', {
 			method: 'POST',
 			body: JSON.stringify({
@@ -75,10 +77,11 @@ class Player extends Component {
 				guildId: this.state.guildId,
 			})
 		})
-  		.then((response)=>(response.json()))
-  		.then((response)=>{
-  			this.props.changeScreen('guild');
-  		})
+		.then((response)=>(response.json()))
+		.then((response)=>{
+			this.props.changeScreen('guild');
+			console.log(this.state.img)
+		})
   }
 
   addNewPlayer = () =>{
