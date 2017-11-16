@@ -1,0 +1,12 @@
+.Player .container {
+  display: flex;
+  justify-content: center;
+}
+.Player .btn {
+  color: #B0D1F1;
+  background-color: #1F4973;
+}
+.Player .card {
+  width: 20%;
+  margin: 1%;
+}

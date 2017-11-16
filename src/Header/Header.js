@@ -49,15 +49,18 @@ class Header extends Component {
 				<div>
 					<nav>
 						<ul className="nav justify-content-center nav-fill">
-							<li className="nav-item"><Link to="/">{this.state.guildName}</Link></li>
-							<li className="nav-item"><Link to="/roster">Roster</Link></li>
-							<li className="nav-item"><Link to="/about">About</Link></li>
-							<li className="nav-item"><Link to="/create">Create New</Link></li>
-							<li className="nav-item">
-								<select name='guild' onChange={this.handleSelectChange}>
-									{guildList}
-								</select>
-							</li>
+							<Link to="/">
+								<li className="nav-item">Tribe of the Ascended</li>
+							</Link>
+							<Link to="/roster">
+								<li className="nav-item">Roster</li>
+							</Link>
+							<Link to="/contact">
+								<li className="nav-item">Contact</li>
+							</Link>
+							<Link to="/create">
+								<li className="nav-item">Create New</li>
+							</Link>
 						</ul>
 		      </nav>
 			<Route exact path="/" component={() => (<Homepage guildId={this.state.guildId} currentTeam={this.props.currentTeam} changeTeamInfo={this.props.changeTeamInfo}/>)}/>
