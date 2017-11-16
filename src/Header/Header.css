@@ -9,7 +9,7 @@ nav a,
 nav a:hover,
 nav a:active,
 nav a:focus {
-  color: white;
+  color: #B0D1F1;
   text-decoration: none;
 }
 nav li:hover {
@@ -17,4 +17,20 @@ nav li:hover {
 }
 nav li {
   font-size: 2em;
+}
+nav .select {
+  margin-top: .5%;
+  width: 12%;
+  color: #B0D1F1;
+  --styled-select-arrow__color: #B0D1F1;
+  --styled-select-placeholder__color: #B0D1F1;
+  --styled-select__color: #B0D1F1;
+  --styled-select__background-color: #1F4973;
+  --styled-select-option__background-color--focused: #6198BF;
+  --styled-select-option__background-color--selected: #6198BF;
+  --styled-select-no-results__color: #B0D1F1;
+  --styled-select-option__color: #B0D1F1;
+  --styled-select-option__color--focused: #B0D1F1;
+  --styled-select-option__color--selected: #B0D1F1;
+  --styled-select-clear__font-size: 14px;
 }
