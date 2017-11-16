@@ -113,7 +113,7 @@ class Player extends Component {
 
 		const players = this.state.playerArr.map((player, i)=>{
 			return(
-				<div key={i} className=>
+				<div key={i} className="">
 		  		<input id={i} type='text' name='name' placeholder='Player Name' value={this.state.name[i]} onChange={this.handleChange} maxLength="12"/>
 
 					<Select 

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './LookingFor.css'
 
 class LookingFor extends Component {
 	constructor(props) {
@@ -64,136 +65,136 @@ class LookingFor extends Component {
 		return(
 			<div>
 				{this.props.currentTeam}<br/>
-				<div>
+				<div className="wowClasses">
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_warrior_defensivestance.jpg" id="protectionWarrior" className={this.state.protectionWarrior ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_warrior_defensivestance.jpg" id="protectionWarrior" className={this.state.protectionWarrior ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_warrior_savageblow.jpg" id="armsWarrior" className={this.state.armsWarrior ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_warrior_savageblow.jpg" id="armsWarrior" className={this.state.armsWarrior ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_warrior_innerrage.jpg" id="furyWarrior" className={this.state.furyWarrior ? 'filter' : 'noFilter'}/>
-					</div>
-				</div>
-				<div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_paladin_shieldofthetemplar.jpg" id="protectionPaladin" className={this.state.protectionPaladin ? 'filter' : 'noFilter'}/>
-					</div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_holybolt.jpg" id="holyPaladin" className={this.state.holyPaladin ? 'filter' : 'noFilter'}/>
-					</div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_auraoflight.jpg" id="retributionPaladin" className={this.state.retributionPaladin ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_warrior_innerrage.jpg" id="furyWarrior" className={this.state.furyWarrior ? 'noFilter' : 'filter'}/>
 					</div>
 				</div>
-				<div>
+				<div className="wowClasses">
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_hunter_focusedaim.jpg" id="marksmanHunter" className={this.state.marksmanHunter ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_paladin_shieldofthetemplar.jpg" id="protectionPaladin" className={this.state.protectionPaladin ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_hunter_camouflage.jpg" id="survivalHunter" className={this.state.survivalHunter ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_holybolt.jpg" id="holyPaladin" className={this.state.holyPaladin ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_hunter_bestialdiscipline.jpg" id="bmHunter" className={this.state.bmHunter ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_auraoflight.jpg" id="retributionPaladin" className={this.state.retributionPaladin ? 'noFilter' : 'filter'}/>
 					</div>
 				</div>
-				<div>
+				<div className="wowClasses">
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_rogue_deadlybrew.jpg" id="assassinationRogue" className={this.state.assassinationRogue ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_hunter_focusedaim.jpg" id="marksmanHunter" className={this.state.marksmanHunter ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/inv_sword_30.jpg" id="outlawRogue" className={this.state.outlawRogue ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_hunter_camouflage.jpg" id="survivalHunter" className={this.state.survivalHunter ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_stealth.jpg" id="subtletyRogue" className={this.state.subtletyRogue ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_hunter_bestialdiscipline.jpg" id="bmHunter" className={this.state.bmHunter ? 'noFilter' : 'filter'}/>
+					</div>
+				</div>
+				<div className="wowClasses">
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_rogue_deadlybrew.jpg" id="assassinationRogue" className={this.state.assassinationRogue ? 'noFilter' : 'filter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/inv_sword_30.jpg" id="outlawRogue" className={this.state.outlawRogue ? 'noFilter' : 'filter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_stealth.jpg" id="subtletyRogue" className={this.state.subtletyRogue ? 'noFilter' : 'filter'}/>
 					</div>	
 				</div>
-				<div>
+				<div className="wowClasses">
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_powerwordshield.jpg" id="disciplinePriest" className={this.state.disciplinePriest ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_powerwordshield.jpg" id="disciplinePriest" className={this.state.disciplinePriest ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_guardianspirit.jpg" id="holyPriest" className={this.state.holyPriest ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_guardianspirit.jpg" id="holyPriest" className={this.state.holyPriest ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowwordpain.jpg" id="shadowPriest" className={this.state.shadowPriest ? 'filter' : 'noFilter'}/>
-					</div>
-				</div>
-				<div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_deathknight_frostpresence.jpg" id="frostDeathKnight" className={this.state.frostDeathKnight ? 'filter' : 'noFilter'}/>
-					</div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_deathknight_bloodpresence.jpg" id="bloodDeathKnight" className={this.state.bloodDeathKnight ? 'filter' : 'noFilter'}/>
-					</div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_deathknight_unholypresence.jpg" id="unholyDeathKnight" className={this.state.unholyDeathKnight ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowwordpain.jpg" id="shadowPriest" className={this.state.shadowPriest ? 'noFilter' : 'filter'}/>
 					</div>
 				</div>
-				<div>
+				<div className="wowClasses">
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_lightning.jpg" id="elementalShaman" className={this.state.elementalShaman ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_deathknight_frostpresence.jpg" id="frostDeathKnight" className={this.state.frostDeathKnight ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shaman_improvedstormstrike.jpg" id="enhancementShaman" className={this.state.enhancementShaman ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_deathknight_bloodpresence.jpg" id="bloodDeathKnight" className={this.state.bloodDeathKnight ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_magicimmunity.jpg" id="restorationShaman" className={this.state.restorationShaman ? 'filter' : 'noFilter'}/>
-					</div>
-				</div>
-				<div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_magicalsentry.jpg" id="arcaneMage" className={this.state.arcaneMage ? 'filter' : 'noFilter'}/>
-					</div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_fire_firebolt02.jpg" id="fireMage" className={this.state.fireMage ? 'filter' : 'noFilter'}/>
-					</div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_frost_frostbolt02.jpg" id="frostMage" className={this.state.frostMage ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_deathknight_unholypresence.jpg" id="unholyDeathKnight" className={this.state.unholyDeathKnight ? 'noFilter' : 'filter'}/>
 					</div>
 				</div>
-				<div>
+				<div className="wowClasses">
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_deathcoil.jpg" id="afflictionWarlock" className={this.state.afflictionWarlock ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_lightning.jpg" id="elementalShaman" className={this.state.elementalShaman ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_metamorphosis.jpg" id="demonologyWarlock" className={this.state.demonologyWarlock ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shaman_improvedstormstrike.jpg" id="enhancementShaman" className={this.state.enhancementShaman ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_rainoffire.jpg" id="destructionWarlock" className={this.state.destructionWarlock ? 'filter' : 'noFilter'}/>
-					</div>
-				</div>
-				<div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_monk_brewmaster_spec.jpg" id="brewmasterMonk" className={this.state.brewmasterMonk ? 'filter' : 'noFilter'}/>
-					</div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_monk_mistweaver_spec.jpg" id="mistweaverMonk" className={this.state.mistweaverMonk ? 'filter' : 'noFilter'}/>
-					</div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_monk_windwalker_spec.jpg" id="windwalkerMonk" className={this.state.windwalkerMonk ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_magicimmunity.jpg" id="restorationShaman" className={this.state.restorationShaman ? 'noFilter' : 'filter'}/>
 					</div>
 				</div>
-				<div>
+				<div className="wowClasses">
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_racial_bearform.jpg" id="guardianDruid" className={this.state.guardianDruid ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_holy_magicalsentry.jpg" id="arcaneMage" className={this.state.arcaneMage ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_druid_catform.jpg" id="feralDruid" className={this.state.feralDruid ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_fire_firebolt02.jpg" id="fireMage" className={this.state.fireMage ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_starfall.jpg" id="balanceDruid" className={this.state.balanceDruid ? 'filter' : 'noFilter'}/>
-					</div>
-					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_healingtouch.jpg" id="restorationDruid" className={this.state.restorationDruid ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_frost_frostbolt02.jpg" id="frostMage" className={this.state.frostMage ? 'noFilter' : 'filter'}/>
 					</div>
 				</div>
-				<div>
+				<div className="wowClasses">
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_demonhunter_spectank.jpg" id="vengeanceDemonHunter" className={this.state.vengeanceDemonHunter ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_deathcoil.jpg" id="afflictionWarlock" className={this.state.afflictionWarlock ? 'noFilter' : 'filter'}/>
 					</div>
 					<div>
-						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_demonhunter_specdps.jpg" id="havocDemonHunter" className={this.state.havocDemonHunter ? 'filter' : 'noFilter'}/>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_metamorphosis.jpg" id="demonologyWarlock" className={this.state.demonologyWarlock ? 'noFilter' : 'filter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_shadow_rainoffire.jpg" id="destructionWarlock" className={this.state.destructionWarlock ? 'noFilter' : 'filter'}/>
+					</div>
+				</div>
+				<div className="wowClasses">
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_monk_brewmaster_spec.jpg" id="brewmasterMonk" className={this.state.brewmasterMonk ? 'noFilter' : 'filter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_monk_mistweaver_spec.jpg" id="mistweaverMonk" className={this.state.mistweaverMonk ? 'noFilter' : 'filter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_monk_windwalker_spec.jpg" id="windwalkerMonk" className={this.state.windwalkerMonk ? 'noFilter' : 'filter'}/>
+					</div>
+				</div>
+				<div className="wowClasses">
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_racial_bearform.jpg" id="guardianDruid" className={this.state.guardianDruid ? 'noFilter' : 'filter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_druid_catform.jpg" id="feralDruid" className={this.state.feralDruid ? 'noFilter' : 'filter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_starfall.jpg" id="balanceDruid" className={this.state.balanceDruid ? 'noFilter' : 'filter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_healingtouch.jpg" id="restorationDruid" className={this.state.restorationDruid ? 'noFilter' : 'filter'}/>
+					</div>
+				</div>
+				<div className="wowClasses">
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_demonhunter_spectank.jpg" id="vengeanceDemonHunter" className={this.state.vengeanceDemonHunter ? 'noFilter' : 'filter'}/>
+					</div>
+					<div>
+						<img alt="spec" src="http://wow.zamimg.com/images/wow/icons/large/ability_demonhunter_specdps.jpg" id="havocDemonHunter" className={this.state.havocDemonHunter ? 'noFilter' : 'filter'}/>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,7 @@
+.wowClasses {
+  display: flex;
+  flex-direction: row;
+}
+.filter {
+  filter: grayscale(1) blur(1px);
+}
