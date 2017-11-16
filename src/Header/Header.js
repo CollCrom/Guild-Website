@@ -34,7 +34,6 @@ class Header extends Component {
   		state.guildId = e.currentTarget.value;
   		state.guildName = state.guilds[e.currentTarget.value - 1].name;
   		this.setState(state);
-  		console.log(this.state, 'what the fuck')
   	}
 
 	render(){

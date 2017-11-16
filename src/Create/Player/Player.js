@@ -41,12 +41,10 @@ class Player extends Component {
       })
       this.setState(state);
       this.postPlayers();
-      console.log(this.state.img, 'img state')
   }
 
   setPlayerImage = (index) =>{
   	const URI = `https://raider.io/api/v1/characters/profile?region=${this.state.region}&realm=${this.state.realm[index]}&name=${this.state.name[index]}`;
-  	console.log(URI, 'URI')
   	fetch(URI)
 		.then((response)=>(response.json()))
 		.then((data)=>{

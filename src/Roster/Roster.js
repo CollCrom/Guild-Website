@@ -4,21 +4,29 @@ import PlayerRoster from './PlayerRoster/PlayerRoster.js'
 
 
 class Roster extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-			
+			aboutMythic: '',
+			aboutHeroic: '',
+			aboutRBG: '',
+			mythicPlayers: '',
+			heroicPlayers: '',
+			rbgPlayers: ''
 		}
 	}
 
 	componentDidMount() {
-		fetch('http://localhost:9292/view/guild/' + this.props.guildId)
+		fetch('http://localhost:9292/view/players/' + this.props.guildId)
 			.then((response)=>(response.json()))
 			.then((response)=>{
 				const state = this.state;
 				state.aboutMythic = response.aboutMythic;
 				state.aboutHeroic = response.aboutHeroic;
 				state.aboutRBG = response.aboutRBG;
+				state.mythicPlayers = response.mythicPlayers;
+				state.heroicPlayers = response.heroicPlayers;
+				state.rbgPlayers = response.rbgPlayers;
 				this.setState(state);
 			})
 	}
@@ -38,7 +46,7 @@ class Roster extends Component {
 					|
 					<a href='/' onClick={this.props.changeTeamInfo}>RBG</a>
 
-					<TeamInfo currentTeam={this.props.currentTeam}/>
+					<TeamInfo currentTeam={this.props.currentTeam} data={this.state}/>
 				</div>
 			</div>
 		);

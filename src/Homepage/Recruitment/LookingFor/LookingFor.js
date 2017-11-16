@@ -46,7 +46,6 @@ class LookingFor extends Component {
 	}
 
 	componentWillReceiveProps(props) {
-		console.log(this.props.data)
 		const state = this.state;
 		state.data = this.props.data['lf' + this.props.currentTeam];
 		this.setState(state);
