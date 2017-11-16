@@ -13,39 +13,40 @@ class Player extends Component {
 			team: [''],
 			region: '',
 			guildId: '',
-			playerArr: [true]
+			playerArr: [true],
+			counter: 0
 		}
 	}
 
 	handleSelectChange = (e, value) => {
-     const state = this.state;
-    const index = e;
-    if(value === 'Healer' || value === 'Melee' || value === 'Ranged' || value === 'Tank')
-      state.role[index] = value;
-    else if (value === 'RBG' || value === 'Mythic' || value === 'Heroic')
-    	state.team[index] = value
-    else
-      state.realm[index] = value;
-    this.setState(state);
-  }
-  handleChange = (e) =>{
-  	const state = this.state;
-  	const index = e.currentTarget.id
-  	const name = e.currentTarget.name;
-  	state[name][index] = e.currentTarget.value;
-  	this.setState(state)
-  }
+		const state = this.state;
+		const index = e;
+		if(value === 'Healer' || value === 'Melee' || value === 'Ranged' || value === 'Tank')
+			state.role[index] = value;
+		else if (value === 'RBG' || value === 'Mythic' || value === 'Heroic')
+			state.team[index] = value
+		else
+			state.realm[index] = value;
+		this.setState(state);
+		console.log(this.state)
+	}
+	handleChange = (e) =>{
+		const state = this.state;
+		const index = e.currentTarget.id
+		const name = e.currentTarget.name;
+		state[name][index] = e.currentTarget.value;
+		this.setState(state)
+	}
+
 	handleSubmit = (e) =>{
       e.preventDefault();
       const state = this.state;
       state.region = this.props.region;
       state.guildId = this.props.guildId;
+      this.setState(state);
       state.playerArr.forEach((player, i)=>{
       	this.setPlayerImage(i)
-      })
-      this.setState(state);
-      this.postPlayers();
-      console.log(this.state)
+      }) 
   }
 
   setPlayerImage = (index) =>{
@@ -61,10 +62,20 @@ class Player extends Component {
 				thisState.img[index] = data.thumbnail_url;
 			this.setState(thisState)
 		})
+		.then((data)=>{
+			console.log('yah yeey')
+			const state = this.state;
+			state.counter++;
+			this.setState(state);
+			console.log(this.state)
+			console.log(this.state.counter === this.state.playerArr.length)
+			if (this.state.counter === this.state.playerArr.length){
+        		this.postPlayers();
+      		}
+		})
   }
 
   postPlayers = () => {
-  	console.log(this.state, 'posting platers')
   	fetch('http://localhost:9292/create/players', {
 			method: 'POST',
 			body: JSON.stringify({
