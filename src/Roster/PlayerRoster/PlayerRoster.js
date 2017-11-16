@@ -45,6 +45,7 @@ class PlayerRoster extends Component {
 
 	render(){
 		const tanks = this.state.tanks.map((player, i)=>{
+			console.log(player)
 			return (<div key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
 		})
 

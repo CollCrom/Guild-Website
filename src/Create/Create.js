@@ -32,9 +32,9 @@ class Create extends Component {
 	realmListApiCall = (region) => {
   	let theURI;
   	if (region === 'US') {
-  		theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=epxh647rz5vcvrqkxxc95kta7zmy5uvt';
+  		theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
   	}else if (region === 'EU') {
-  		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=epxh647rz5vcvrqkxxc95kta7zmy5uvt';
+  		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
   	}
   	else if (region === '')
   		return;
@@ -48,15 +48,16 @@ class Create extends Component {
 				state.realms.push({name: data.realms[i].name, slug: data.realms[i].slug});
 			}
 			this.setState(state);
+			this.crossRealmListApiCall(this.state.region)
 		});
   }
 
   crossRealmListApiCall = (region) =>{
   	let theURI;
   	if (region === 'US') {
-  		theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=epxh647rz5vcvrqkxxc95kta7zmy5uvt';
+  		theURI = 'https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
   	}else if (region === 'EU') {
-  		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=epxh647rz5vcvrqkxxc95kta7zmy5uvt';
+  		theURI = 'https://eu.api.battle.net/wow/realm/status?locale=en_GB&apikey=7hbm4m47wu8hh68uh3j8zsfps37xtvb2';
   	}
   	else if (region === '')
   		return;
@@ -84,7 +85,7 @@ class Create extends Component {
   		return (<Team changeScreen={this.changeScreen} guildId={this.state.guildId}/>)
   	}
   	else if (this.state.screen === 'player'){
-  		return (<Player changeScreen={this.changeScreen} guildId={this.state.guildId} region={this.state.region} crossRealmListApiCall={this.crossRealmListApiCall} crossRealms={this.state.crossRealms}/>)
+  		return (<Player changeScreen={this.changeScreen} guildId={this.state.guildId} region={this.state.region} crossRealms={this.state.crossRealms}/>)
   	}
   }
 
@@ -95,7 +96,6 @@ class Create extends Component {
   }
 
 	render(){
-		this.crossRealmListApiCall(this.state.region)
 		return(
 			this.chooseScreen()
 		)
