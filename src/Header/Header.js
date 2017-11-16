@@ -13,10 +13,18 @@ class Header extends Component {
 				<div>
 					<nav>
 						<ul className="nav justify-content-center nav-fill">
-							<li className="nav-item"><Link to="/">Tribe of the Ascended</Link></li>
-							<li className="nav-item"><Link to="/roster">Roster</Link></li>
-							<li className="nav-item"><Link to="/contact">Contact</Link></li>
-							<li className="nav-item"><Link to="/create">Create New</Link></li>
+							<Link to="/">
+								<li className="nav-item">Tribe of the Ascended</li>
+							</Link>
+							<Link to="/roster">
+								<li className="nav-item">Roster</li>
+							</Link>
+							<Link to="/contact">
+								<li className="nav-item">Contact</li>
+							</Link>
+							<Link to="/create">
+								<li className="nav-item">Create New</li>
+							</Link>
 						</ul>
 		      </nav>
 					<Route exact path="/" component={() => (<Homepage currentTeam={this.props.currentTeam} changeTeamInfo={this.props.changeTeamInfo}/>)}/>

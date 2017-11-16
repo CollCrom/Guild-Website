@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Select from 'react-styled-select'
+import './Player.css'
 
 class Player extends Component {
 	constructor(props){
@@ -87,11 +88,6 @@ class Player extends Component {
   }
 
 	render(){
-		const realms = this.props.crossRealms.map((realm, i)=>{
-			return(
-				<option key={i} value={realm}>{realm}</option>
-			)
-		})
 		const realmOptions = this.props.crossRealms.map((realm, i)=>{
 			return(
 				{label: realm, value: realm}
@@ -112,7 +108,7 @@ class Player extends Component {
 
 		const players = this.state.playerArr.map((player, i)=>{
 			return(
-				<div key={i} className=>
+				<div key={i} className='card'>
 		  		<input id={i} type='text' name='name' placeholder='Player Name' value={this.state.name[i]} onChange={this.handleChange} maxLength="12"/>
 
 					<Select 
@@ -139,9 +135,17 @@ class Player extends Component {
 
 		return(
 			<div className='Player'>
-				{players}
-				<button className='btn' onClick={this.addNewPlayer}>Add Player</button>
-				<button className='btn' onClick={this.handleSubmit}>Submit</button>
+				<div className='container'>
+					<div className='row'>
+						<button className='btn' onClick={this.addNewPlayer}>Add Player</button>
+					</div>
+					<div className='row'>
+						<button className='btn' onClick={this.handleSubmit}>Submit</button>
+					</div>
+					<div className='row'>
+						{players}
+					</div>
+				</div>
 			</div>
 		)
 	}

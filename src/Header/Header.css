@@ -2,6 +2,9 @@ nav {
   background-color: #001429;
   height: 3em;
 }
+nav a {
+  margin: 0 2%;
+}
 nav a,
 nav a:hover,
 nav a:active,
