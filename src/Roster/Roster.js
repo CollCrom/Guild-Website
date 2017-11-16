@@ -10,9 +10,9 @@ class Roster extends Component {
 			aboutMythic: '',
 			aboutHeroic: '',
 			aboutRBG: '',
-			mythicPlayers: '',
-			heroicPlayers: '',
-			rbgPlayers: ''
+			playersMythic: '',
+			playersHeroic: '',
+			playersRBG: ''
 		}
 	}
 
@@ -24,9 +24,9 @@ class Roster extends Component {
 				state.aboutMythic = response.aboutMythic;
 				state.aboutHeroic = response.aboutHeroic;
 				state.aboutRBG = response.aboutRBG;
-				state.mythicPlayers = response.mythicPlayers;
-				state.heroicPlayers = response.heroicPlayers;
-				state.rbgPlayers = response.rbgPlayers;
+				state.playersMythic = response.mythicPlayers;
+				state.playersHeroic = response.heroicPlayers;
+				state.playersRBG = response.rbgPlayers;
 				this.setState(state);
 			})
 	}
@@ -43,6 +43,7 @@ class Roster extends Component {
 					<a href='/' onClick={this.props.changeTeamInfo}>RBG</a>
 
 					<TeamInfo currentTeam={this.props.currentTeam} data={this.state}/>
+					<PlayerRoster currentTeam={this.props.currentTeam} data={this.state}/>
 				</div>
 			</div>
 		);

@@ -33,6 +33,7 @@ class Guild extends Component {
   	else{
   		state.guild.realm = e;
 			this.setState(state);
+  		this.props.crossRealmListApiCall(state.guild.region, e)
   	}
   }
 

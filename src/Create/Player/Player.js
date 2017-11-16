@@ -16,6 +16,7 @@ class Player extends Component {
 			playerArr: [true]
 		}
 	}
+
 	handleSelectChange = (e, value) => {
      const state = this.state;
     const index = e;
@@ -48,6 +49,7 @@ class Player extends Component {
   }
 
   setPlayerImage = (index) =>{
+  	console.log(this.state, 'getting image')
   	const URI = `https://raider.io/api/v1/characters/profile?region=${this.state.region}&realm=${this.state.realm[index]}&name=${this.state.name[index]}`;
   	fetch(URI)
 		.then((response)=>(response.json()))
@@ -62,6 +64,7 @@ class Player extends Component {
   }
 
   postPlayers = () => {
+  	console.log(this.state, 'posting platers')
   	fetch('http://localhost:9292/create/players', {
 			method: 'POST',
 			body: JSON.stringify({
