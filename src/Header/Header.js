@@ -61,6 +61,9 @@ class Header extends Component {
 							<Link to="/create">
 								<li className="nav-item">Create New</li>
 							</Link>
+							<select name='guild' onChange={this.handleSelectChange}>
+								{guildList}
+							</select>
 						</ul>
 		      </nav>
 			<Route exact path="/" component={() => (<Homepage guildId={this.state.guildId} currentTeam={this.props.currentTeam} changeTeamInfo={this.props.changeTeamInfo}/>)}/>
