@@ -142,7 +142,7 @@ class Player extends Component {
 					<div className='row'>
 						<button className='btn' onClick={this.handleSubmit}>Submit</button>
 					</div>
-					<div className='row'>
+					<div className='row flex'>
 						{players}
 					</div>
 				</div>

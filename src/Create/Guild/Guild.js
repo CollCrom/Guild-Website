@@ -82,7 +82,7 @@ class Guild extends Component {
 			)
 		})
 		const regionOptions = [
-      { label: "EU", value: 'EU'},
+      { label: 'EU', value: 'EU'},
       { label: 'US', value: 'US'},
     ]
 		return(

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import Select from 'react-styled-select'
 import Homepage from '../Homepage/Homepage.js'
 import About from '../About/About.js'
 import Roster from '../Roster/Roster.js'
@@ -30,17 +31,18 @@ class Header extends Component {
 	}
 
 	handleSelectChange = (e) =>{
-	  	const state = this.state;
-  		state.guildId = e.currentTarget.value;
-  		state.guildName = state.guilds[e.currentTarget.value - 1].name;
-  		this.setState(state);
-  	}
+  	const state = this.state;
+		state.guildId = e;
+		state.guildName = state.guilds[e-1].name
+		this.setState(state);
+		console.log(state)
+  }
 
 	render(){
 
 		const guildList = this.state.guilds.map((guild)=>{
 			return(
-				<option key={guild.id} value={guild.id}>{guild.name}</option>
+				{label: guild.name, value: guild.id}
 			)
 		})
 
@@ -50,7 +52,7 @@ class Header extends Component {
 					<nav>
 						<ul className="nav justify-content-center nav-fill">
 							<Link to="/">
-								<li className="nav-item">Tribe of the Ascended</li>
+								<li className="nav-item">{this.state.guildName}</li>
 							</Link>
 							<Link to="/roster">
 								<li className="nav-item">Roster</li>
@@ -61,9 +63,15 @@ class Header extends Component {
 							<Link to="/create">
 								<li className="nav-item">Create New</li>
 							</Link>
-							<select name='guild' onChange={this.handleSelectChange}>
-								{guildList}
-							</select>
+							<Select
+								className='select'
+								options={guildList}
+								placeholder='Select your Guild'
+								value={this.state.guildId}
+								onChange={this.handleSelectChange}
+								searchable
+							/>
+
 						</ul>
 		      </nav>
 			<Route exact path="/" component={() => (<Homepage guildId={this.state.guildId} currentTeam={this.props.currentTeam} changeTeamInfo={this.props.changeTeamInfo}/>)}/>

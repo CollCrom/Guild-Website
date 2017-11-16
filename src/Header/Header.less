@@ -1,3 +1,5 @@
+@fontColor: #B0D1F1;
+
 nav {
 	background-color: #001429;
 	height: 3em;
@@ -5,7 +7,7 @@ nav {
 		margin: 0 2%;
 	}
 	a, a:hover, a:active, a:focus{
-		color: white;
+		color: @fontColor;
 		text-decoration: none;
 	}
 	li:hover{
@@ -13,5 +15,21 @@ nav {
 	}
 	li {
 		font-size: 2em;
+	}
+	.select {
+		margin-top: .5%;
+		width: 12%;
+		color: @fontColor;
+		--styled-select-arrow__color: @fontColor;
+		--styled-select-placeholder__color: @fontColor;
+		--styled-select__color: @fontColor;
+		--styled-select__background-color: #1F4973;
+		--styled-select-option__background-color--focused: #6198BF;
+		--styled-select-option__background-color--selected: #6198BF;
+		--styled-select-no-results__color: @fontColor;
+		--styled-select-option__color: @fontColor;
+		--styled-select-option__color--focused: @fontColor;
+	    --styled-select-option__color--selected: @fontColor;
+	    --styled-select-clear__font-size: 14px;;
 	}
 }
