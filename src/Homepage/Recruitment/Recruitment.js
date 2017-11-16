@@ -20,12 +20,24 @@ class Recruitment extends Component {
 			.then((response)=>(response.json()))
 			.then((response)=>{
 				const state = this.state;
-				state.lfMythic = response.lfMythic.split(',');
-				state.lfHeroic = response.lfHeroic.split(',');
-				state.lfRBG = response.lfRBG.split(',');
-				state.lfMythic.pop();
-				state.lfHeroic.pop();
-				state.lfRBG.pop();
+				if response.lfMythic {
+					state.lfMythic = response.lfMythic.split(',');
+					state.lfMythic.pop();
+				}else {
+					state.lfMythic = '';
+				}
+				if response.lfHeroic {
+					state.lfHeroic = response.lfHeroic.split(',');
+					state.lfHeroic.pop();
+				}else {
+					state.lfHeroic = '';
+				}
+				if response.lfRBG {
+					state.lfRBG = response.lfRBG.split(',');
+					state.lfRBG.pop();
+				}else {
+					state.lfRBG = '';
+				}
 				state.aboutMythic = response.aboutMythic;
 				state.aboutHeroic = response.aboutHeroic;
 				state.aboutRBG = response.aboutRBG;

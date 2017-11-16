@@ -35,10 +35,6 @@ class Roster extends Component {
 	render(){
 		return(
 			<div>
-				<div id="playerPic">
-
-
-				</div>
 				<div>
 					<a href='/' onClick={this.props.changeTeamInfo}>Mythic</a>
 					|
