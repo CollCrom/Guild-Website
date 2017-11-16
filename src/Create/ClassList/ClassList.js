@@ -23,7 +23,7 @@ class ClassList extends Component {
 			frostDeathKnight: false,
 			bloodDeathKnight: false,
 			unholyDeathKnight: false,
-			slementalShaman: false,
+			elementalShaman: false,
 			enhancementShaman: false,
 			restorationShaman: false,
 			arcaneMage: false,
@@ -142,7 +142,7 @@ class ClassList extends Component {
 					</div>
 					<div className='card shaman'>
 						<div>
-							<input type="checkbox" id="slementalShaman" onChange={this.onCheckBox}/>
+							<input type="checkbox" id="elementalShaman" onChange={this.onCheckBox}/>
 							<label htmlFor="elementalShaman">Elemental Shaman</label>
 						</div>
 						<div>

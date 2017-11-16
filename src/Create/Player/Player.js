@@ -40,22 +40,21 @@ class Player extends Component {
       state.playerArr.forEach((player, i)=>{
       	this.setPlayerImage(i)
       })
+      this.setState(state);
       this.postPlayers();
-      console.log(this.state.img, 'img state')
   }
 
   setPlayerImage = (index) =>{
   	const URI = `https://raider.io/api/v1/characters/profile?region=${this.state.region}&realm=${this.state.realm[index]}&name=${this.state.name[index]}`;
-  	console.log(URI, 'URI')
   	fetch(URI)
 		.then((response)=>(response.json()))
 		.then((data)=>{
-			const state = this.state;
+			const thisState = this.state;
 			if(data.statusCode > 400)
-				state.img[index] = '';
+				thisState.img[index] = '';
 			else
-				state.img[index] = data.thumbnail_url;
-			this.setState(state)
+				thisState.img[index] = data.thumbnail_url;
+			this.setState(thisState)
 		})
   }
 

@@ -3,6 +3,9 @@ import Bosskills from './Bosskills/Bosskills.js'
 import Recruitment from './Recruitment/Recruitment.js'
 
 class Homepage extends Component {
+	constructor(props){
+		super(props);
+	}
 	render(){
 		return(
 			<div>
@@ -12,7 +15,7 @@ class Homepage extends Component {
 				|
 				<a href='/' onClick={this.props.changeTeamInfo}>RBG</a>
 
-				<Recruitment currentTeam={this.props.currentTeam}/>
+				<Recruitment currentTeam={this.props.currentTeam} guildId={this.props.guildId}/>
 				{this.props.currentTeam !== 'RBG' ? <Bosskills currentTeam={this.props.currentTeam}/> : null}
 			</div>
 		);
