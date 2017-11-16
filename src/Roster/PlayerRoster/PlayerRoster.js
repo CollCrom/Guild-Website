@@ -38,16 +38,20 @@ class PlayerRoster extends Component {
 		this.setState(state);
 	}
 
+	setChosenPlayer = (player) => {
+		console.log(player.currentTarget);
+	}
+
 
 	render(){
 		const tanks = this.state.tanks.map((player, i)=>{
-			return (<div key={i}><img src={(player.img_link ? player.img_link : '')})
+			return (<div key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
 		})
 
 		return(
 			<div id="playerPic">
 
-
+			{tanks}
 			</div>
 
 		);

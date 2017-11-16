@@ -19,7 +19,7 @@ class Player extends Component {
 	handleChange = (e) => {
       const state = this.state;
       if(!e.currentTarget){
-      	const index = e.value
+      	const index = e
 	      if(e === 'Melee' || e === 'Ranged' || e === 'Healer' || e === 'Tank')
 	      	state.role[index] = e;
 	      else
