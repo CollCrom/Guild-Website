@@ -1,4 +1,4 @@
-#playerPic {
-  width: 100vw;
-  height: 50vh;
+.centered {
+  text-align: center;
+  margin: 0 auto;
 }

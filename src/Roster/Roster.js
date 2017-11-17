@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import TeamInfo from './TeamInfo/TeamInfo.js'
 import PlayerRoster from './PlayerRoster/PlayerRoster.js'
-
+import './Roster.css'
 
 class Roster extends Component {
 	constructor(props) {
@@ -35,7 +35,7 @@ class Roster extends Component {
 	render(){
 		return(
 			<div>
-				<div>
+				<div className="centered">
 					<a href='/' onClick={this.props.changeTeamInfo}>Mythic</a>
 					|
 					<a href='/' onClick={this.props.changeTeamInfo}>Heroic</a>
