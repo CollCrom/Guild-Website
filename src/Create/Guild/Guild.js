@@ -60,7 +60,7 @@ class Guild extends Component {
   }
 
   postGuild = (guild) => {
-  	fetch('http://localhost:9292/create/guild', {
+  	fetch('http://guildy.herokuapp.com/create/guild', {
 			method: 'POST',
 			body: JSON.stringify({
 				name: this.state.guild.name,

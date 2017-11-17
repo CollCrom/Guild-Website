@@ -48,7 +48,7 @@ class Guild extends Component {
   }
 
   postTeam = () => {
-  	fetch('http://localhost:9292/create/team', {
+  	fetch('http://guildy.herokuapp.com/create/team', {
 			method: 'POST',
 			body: JSON.stringify({
 				lfMythic: this.state.lfMythic,
