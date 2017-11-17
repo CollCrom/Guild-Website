@@ -12,11 +12,11 @@
     "react-select": "^1.0.0-rc.10",
     "react-styled-select": "^2.2.2-beta"
   },
-  “scripts”: {
-    “start”: “react-scripts start”,
-    “build”: “react-scripts build”,
-    “test”: “react-scripts test --env=jsdom”,
-    “eject”: “react-scripts eject”
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "node-less-chokidar": "^0.1.0",
