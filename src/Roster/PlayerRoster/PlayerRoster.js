@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './PlayerRoster.css'
 
 class PlayerRoster extends Component {
 	constructor(props) {
@@ -45,28 +46,28 @@ class PlayerRoster extends Component {
 
 	render(){
 		const tanks = this.state.tanks.map((player, i)=>{
-			console.log(player)
-			return (<div key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
+			return (<div className="player" key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
 		})
 		const healers = this.state.healers.map((player, i)=>{
-			console.log(player)
-			return (<div key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
+			return (<div className="player" key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
 		})
 		const melee = this.state.melee.map((player, i)=>{
-			console.log(player)
-			return (<div key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
+			return (<div className="player" key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
 		})
 		const ranged = this.state.ranged.map((player, i)=>{
-			console.log(player)
-			return (<div key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
+			return (<div className="player" key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
 		})
 
 		return(
-			<div id="playerPic">
+			<div id="players">
+				<h2>Tanks</h2>
 				{tanks}
+				<h2>Healers</h2>
 				{healers}
-				{ranged}
+				<h2>Melee DPS</h2>
 				{melee}
+				<h2>Ranged DPS</h2>
+				{ranged}
 			</div>
 
 		);

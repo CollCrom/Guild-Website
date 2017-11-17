@@ -62,7 +62,7 @@ class LookingFor extends Component {
 
 	render(){
 		return(
-			<div className="classContainer">
+			<div className="classContainer centered">
 				<div>
 					<div className="wowClasses">
 						<h3>Warrior</h3>

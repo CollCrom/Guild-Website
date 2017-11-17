@@ -3,7 +3,6 @@ import TeamInfo from './TeamInfo/TeamInfo.js'
 import PlayerRoster from './PlayerRoster/PlayerRoster.js'
 import './Roster.css'
 
-
 class Roster extends Component {
 	constructor(props) {
 		super(props);
@@ -36,14 +35,13 @@ class Roster extends Component {
 	render(){
 		return(
 			<div className='Roster'>
-				<div>
-					<div className='link'>
-						<a href='/' onClick={this.props.changeTeamInfo}>Mythic</a>
-						|
-						<a href='/' onClick={this.props.changeTeamInfo}>Heroic</a>
-						|
-						<a href='/' onClick={this.props.changeTeamInfo}>RBG</a>
-					</div>
+				<div className="centered">
+					<a href='/' onClick={this.props.changeTeamInfo}>Mythic</a>
+					|
+					<a href='/' onClick={this.props.changeTeamInfo}>Heroic</a>
+					|
+					<a href='/' onClick={this.props.changeTeamInfo}>RBG</a>
+
 
 					<TeamInfo currentTeam={this.props.currentTeam} data={this.state}/>
 					<PlayerRoster currentTeam={this.props.currentTeam} data={this.state}/>

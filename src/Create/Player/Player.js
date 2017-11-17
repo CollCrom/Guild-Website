@@ -63,12 +63,9 @@ class Player extends Component {
 			this.setState(thisState)
 		})
 		.then((data)=>{
-			console.log('yah yeey')
 			const state = this.state;
 			state.counter++;
 			this.setState(state);
-			console.log(this.state)
-			console.log(this.state.counter === this.state.playerArr.length)
 			if (this.state.counter === this.state.playerArr.length){
         		this.postPlayers();
       		}

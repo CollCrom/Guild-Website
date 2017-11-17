@@ -9,7 +9,8 @@ class Homepage extends Component {
 	}
 	render(){
 		return(
-			<div className='Homepage'>
+
+			<div className="centered Homepage">
 				<a href='/' onClick={this.props.changeTeamInfo}>Mythic</a>
 				|
 				<a href='/' onClick={this.props.changeTeamInfo}>Heroic</a>
@@ -17,7 +18,6 @@ class Homepage extends Component {
 				<a href='/' onClick={this.props.changeTeamInfo}>RBG</a>
 
 				<Recruitment currentTeam={this.props.currentTeam} guildId={this.props.guildId}/>
-				{this.props.currentTeam !== 'RBG' ? <Bosskills currentTeam={this.props.currentTeam}/> : null}
 			</div>
 		);
 	}

@@ -6,7 +6,7 @@ class TeamInfo extends Component {
 	}
 	render(){
 		return(
-			<div>
+			<div className="centered">
 				{this.props.currentTeam}<br/>
 				{this.props.data['about' + this.props.currentTeam]}
 			</div>
