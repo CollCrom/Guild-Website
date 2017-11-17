@@ -12,15 +12,11 @@
     "react-select": "^1.0.0-rc.10",
     "react-styled-select": "^2.2.2-beta"
   },
-  "scripts": {
-    "start": "npm run build-css && run-p -ncr watch-css start-js",
-    "start-js": "react-scripts start",
-    "build": "run-s -n build-css build-js",
-    "build-js": "react-scripts build",
-    "test": "run-s -n build-css test-js",
-    "test-js": "react-scripts test --env=jsdom",
-    "build-css": "node-less-chokidar src",
-    "watch-css": "node-less-chokidar src --watch"
+  “scripts”: {
+    “start”: “react-scripts start”,
+    “build”: “react-scripts build”,
+    “test”: “react-scripts test --env=jsdom”,
+    “eject”: “react-scripts eject”
   },
   "devDependencies": {
     "node-less-chokidar": "^0.1.0",
