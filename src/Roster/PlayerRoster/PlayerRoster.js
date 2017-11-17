@@ -48,11 +48,25 @@ class PlayerRoster extends Component {
 			console.log(player)
 			return (<div key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
 		})
+		const healers = this.state.healers.map((player, i)=>{
+			console.log(player)
+			return (<div key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
+		})
+		const melee = this.state.melee.map((player, i)=>{
+			console.log(player)
+			return (<div key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
+		})
+		const ranged = this.state.ranged.map((player, i)=>{
+			console.log(player)
+			return (<div key={i} onClick={this.setChosenPlayer}><img src={ player.img_link ? player.img_link : '' } /><h5>{player.player_name}</h5></div>)
+		})
 
 		return(
 			<div id="playerPic">
-
-			{tanks}
+				{tanks}
+				{healers}
+				{ranged}
+				{melee}
 			</div>
 
 		);
