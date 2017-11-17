@@ -1,0 +1,17 @@
+.Homepage a {
+  font-size: 2em;
+  margin: 0 2%;
+}
+.Homepage a,
+.Homepage a:active,
+.Homepage a:focus {
+  color: #B0D1F1;
+  text-decoration: none;
+}
+.Homepage a:hover {
+  color: #001429;
+}
+.Homepage .link {
+  text-align: center;
+  margin: auto;
+}

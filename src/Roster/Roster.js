@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import TeamInfo from './TeamInfo/TeamInfo.js'
 import PlayerRoster from './PlayerRoster/PlayerRoster.js'
+import './Roster.css'
 
 
 class Roster extends Component {
@@ -34,13 +35,15 @@ class Roster extends Component {
 
 	render(){
 		return(
-			<div>
+			<div className='Roster'>
 				<div>
-					<a href='/' onClick={this.props.changeTeamInfo}>Mythic</a>
-					|
-					<a href='/' onClick={this.props.changeTeamInfo}>Heroic</a>
-					|
-					<a href='/' onClick={this.props.changeTeamInfo}>RBG</a>
+					<div className='link'>
+						<a href='/' onClick={this.props.changeTeamInfo}>Mythic</a>
+						|
+						<a href='/' onClick={this.props.changeTeamInfo}>Heroic</a>
+						|
+						<a href='/' onClick={this.props.changeTeamInfo}>RBG</a>
+					</div>
 
 					<TeamInfo currentTeam={this.props.currentTeam} data={this.state}/>
 					<PlayerRoster currentTeam={this.props.currentTeam} data={this.state}/>
