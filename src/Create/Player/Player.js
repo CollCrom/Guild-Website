@@ -73,7 +73,7 @@ class Player extends Component {
   }
 
   postPlayers = () => {
-  	fetch('https://guildy.herokuapp.com/', {
+  	fetch('https://guildy.herokuapp.com/create/players', {
 			method: 'POST',
 			body: JSON.stringify({
 				name: this.state.name,
