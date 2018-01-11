@@ -38,6 +38,7 @@ class Guild extends Component {
       e.preventDefault();
       this.postTeam();
       const state = this.state;
+      this.props.changeScreen('player')
       this.clearState(state);
   }
 
