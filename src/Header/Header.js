@@ -18,7 +18,7 @@ class Header extends Component {
 	}
 
 	componentDidMount() {
-		fetch('http://guildy.herokuapp.com/view/guilds')
+		fetch('https://guildy.herokuapp.com/view/guilds')
 			.then((response)=>(response.json()))
 			.then((response)=>{
 				const state = this.state;

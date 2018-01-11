@@ -17,7 +17,7 @@ class Roster extends Component {
 	}
 
 	componentDidMount() {
-		fetch('http://guildy.herokuapp.com/view/players/' + this.props.guildId)
+		fetch('https://guildy.herokuapp.com/view/players/' + this.props.guildId)
 			.then((response)=>(response.json()))
 			.then((response)=>{
 				const state = this.state;
