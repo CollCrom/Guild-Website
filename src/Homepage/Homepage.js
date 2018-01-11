@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Bosskills from './Bosskills/Bosskills.js'
 import Recruitment from './Recruitment/Recruitment.js'
+import './Homepage.css'
 
 class Homepage extends Component {
 	constructor(props){
@@ -8,7 +9,8 @@ class Homepage extends Component {
 	}
 	render(){
 		return(
-			<div className="centered">
+
+			<div className="centered Homepage">
 				<a href='/' onClick={this.props.changeTeamInfo}>Mythic</a>
 				|
 				<a href='/' onClick={this.props.changeTeamInfo}>Heroic</a>

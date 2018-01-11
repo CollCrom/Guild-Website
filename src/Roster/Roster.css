@@ -1,3 +1,17 @@
+.Roster a {
+  font-size: 2em;
+  margin: 0 2%;
+  text-align: center;
+}
+.Roster a,
+.Roster a:active,
+.Roster a:focus {
+  color: #B0D1F1;
+  text-decoration: none;
+}
+.Roster a:hover {
+  color: #001429;
+}
 .centered {
   text-align: center;
   margin: 0 auto;

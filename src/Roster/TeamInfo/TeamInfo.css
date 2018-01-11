@@ -1,0 +1,10 @@
+a {
+  margin: 0 2%;
+}
+a,
+a:hover,
+a:active,
+a:focus {
+  color: #B0D1F1;
+  text-decoration: none;
+}

@@ -39,14 +39,14 @@ class Player extends Component {
 	}
 
 	handleSubmit = (e) =>{
-      e.preventDefault();
-      const state = this.state;
-      state.region = this.props.region;
-      state.guildId = this.props.guildId;
-      this.setState(state);
-      state.playerArr.forEach((player, i)=>{
-      	this.setPlayerImage(i)
-      }) 
+    e.preventDefault();
+    const state = this.state;
+    state.region = this.props.region;
+    state.guildId = this.props.guildId;
+    this.setState(state);
+    state.playerArr.forEach((player, i)=>{
+    	this.setPlayerImage(i)
+    }) 
   }
 
   setPlayerImage = (index) =>{
@@ -73,7 +73,7 @@ class Player extends Component {
   }
 
   postPlayers = () => {
-  	fetch('http://localhost:9292/create/players', {
+  	fetch('http://guildy.herokuapp.com/', {
 			method: 'POST',
 			body: JSON.stringify({
 				name: this.state.name,
@@ -83,10 +83,11 @@ class Player extends Component {
 				guildId: this.state.guildId,
 			})
 		})
-  		.then((response)=>(response.json()))
-  		.then((response)=>{
-  			this.props.changeScreen('guild');
-  		})
+		.then((response)=>(response.json()))
+		.then((response)=>{
+			this.props.changeScreen('guild');
+			console.log(this.state.img)
+		})
   }
 
   addNewPlayer = () =>{

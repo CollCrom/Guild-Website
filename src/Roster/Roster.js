@@ -17,7 +17,7 @@ class Roster extends Component {
 	}
 
 	componentDidMount() {
-		fetch('http://localhost:9292/view/players/' + this.props.guildId)
+		fetch('http://guildy.herokuapp.com/view/players/' + this.props.guildId)
 			.then((response)=>(response.json()))
 			.then((response)=>{
 				const state = this.state;
@@ -34,13 +34,14 @@ class Roster extends Component {
 
 	render(){
 		return(
-			<div>
+			<div className='Roster'>
 				<div className="centered">
 					<a href='/' onClick={this.props.changeTeamInfo}>Mythic</a>
 					|
 					<a href='/' onClick={this.props.changeTeamInfo}>Heroic</a>
 					|
 					<a href='/' onClick={this.props.changeTeamInfo}>RBG</a>
+
 
 					<TeamInfo currentTeam={this.props.currentTeam} data={this.state}/>
 					<PlayerRoster currentTeam={this.props.currentTeam} data={this.state}/>
